@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/pages/teaching.css';
+const base = import.meta.env.BASE_URL;
+---
+<Base
+  title="Teaching — 강의 이력 · 만족도 · 지도 성과 | Runa UX Labs"
+  description="7년간 20개 과정을 설계·운영. 교강사 만족도 4.8/5.0, 국무총리상 수상자 배출. 신미경 강의 이력과 교수법."
+  current="teaching"
+>
+  <div class="wrap">
+    <header class="page-header">
+      <span class="kicker">Teaching</span>
+      <h1 class="page-title">강의 이력</h1>
+      <p class="page-sub">7년간 20개 과정 이상을 설계·운영하며 쌓아온 교육 기록.</p>
+    </header>
+
+    <hr class="rule" />
+
+    <section class="section">
+      <span class="kicker">이력</span>
+      <div class="history-item">
+        <p class="h-period">2024 – 현재</p>
+        <h2 class="h-title">(주)구름 · 주강사</h2>
+        <p class="h-desc">프론트엔드 융합 프로덕트 디자이너 과정 — 총 4개 회차 주강사·퍼실리테이터 <br />(주간 1·4·9회차 · 야간 10회차) <br />생성형 AI &amp; UX/UI 최적화 마스터 과정 — 6회 주강사 <br />수도권ICT이노베이션스퀘어 — 특강 2 · 멘토링 1 · 해커톤 심사 1</p>
+      </div>
+      <div class="history-item">
+        <p class="h-period">2019 – 2024</p>
+        <h2 class="h-title">이지디자인컴퓨터학원 · 전임강사</h2>
+        <p class="h-desc">Vue.js PWA 개발자 양성(산업구조변화대응특화훈련) — 4회 <br />반응형 웹디자인·UI/UX·웹퍼블리셔 취업/프로젝트 과정 — 9회 <br />포토샵·일러스트레이션 디자인 — 1회 <br />스마트웹&amp;콘텐츠개발 풀스택 개발자 양성 — 1회 <br /><a href="https://github.com/orgs/runauxlabs-wv/repositories" target="_blank" rel="noopener">수료생 포트폴리오 아카이브(6기~) →</a></p>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <section class="section">
+      <span class="kicker">강의 직접 지표 만족도 (5점 환산)</span>
+      <div class="sat-wrap">
+        <table class="table">
+          <thead>
+            <tr><th>지표</th><th>1회차</th><th>4회차</th><th>9회차</th><th>평균</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>교강사</td><td>4.7</td><td>4.6</td><td>5.0</td><td class="avg-cell">4.8</td></tr>
+            <tr><td>실무연계성</td><td>4.3</td><td>4.8</td><td>5.0</td><td class="avg-cell">4.7</td></tr>
+            <tr><td>현장지향성</td><td>4.3</td><td>4.5</td><td>4.7</td><td class="avg-cell">4.5</td></tr>
+            <tr><td>능력향상</td><td>4.3</td><td>4.3</td><td>4.5</td><td class="avg-cell">4.4</td></tr>
+            <tr><td>평가·피드백</td><td>4.1</td><td>4.2</td><td>4.7</td><td class="avg-cell">4.3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sat-note">취업지원·장비 등 기관 운영 지표는 제외한, 강의에 직접 귀속되는 지표입니다. <br />회차마다 상승해 전 항목이 과정 전반 만족도(평균 4.3)를 상회. 원점수 7점 척도 기준 교강사 6.6/7.</p>
+    </section>
+
+    <hr class="rule" />
+
+    <section class="section">
+      <span class="kicker">커리큘럼 설계</span>
+      <h2 class="h-title">'개발과 대화하는 디자이너'를 기르기 위한 교육 프로덕트</h2>
+      <p class="h-desc">커리큘럼 자체를 하나의 프로덕트로 설계·운영합니다. 구름 KDT 주간 1·4·9회차 · 야간 10회차(2024.08~현재).</p>
+      <div class="methods-grid">
+        <div class="method-card">
+          <h3>점진적 빌드업</h3>
+          <p>미니(4~5회) → 세미(2회) → 합반 파이널. 7개월에 걸쳐 단계별로 프로젝트 규모를 확장.</p>
+        </div>
+        <div class="method-card">
+          <h3>직군 연계 합반 파이널 — 전사 표준 채택</h3>
+          <p>3개 PBL 중 마지막 파이널을 타 과정(PM·FE·BE)과 합반으로 진행하는 모델을 최초 제안 → 구름 전사 표준으로 채택. 1·4·9회차에 운영하며 배포·사용자테스트·QA까지 풀스택 경험.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <section class="section">
+      <span class="kicker">교수법</span>
+      <div class="methods-grid">
+        <div class="method-card">
+          <h3>퍼실리테이팅 모델</h3>
+          <p>이론 2h + 실습 6h, 훈련생이 자기주도학습하는 모델.</p>
+        </div>
+        <div class="method-card">
+          <h3>Live Diagramming</h3>
+          <p>복잡한 개념을 실시간 도식화로 풀어내는 교수법. 시각적 사고로 이해도 극대화.</p>
+        </div>
+        <div class="method-card">
+          <h3>EXP 100% 코칭형 피드백</h3>
+          <p>모든 과제에 100% 피드백. 10분 커피챗, Figma 실시간 모니터링, 과정 중 130회+ 상담.</p>
+        </div>
+        <div class="method-card">
+          <h3>밀착 멘토링</h3>
+          <p>프로젝트 기획부터 완성까지 1:1 밀착 지도. 해커톤 최고상 수상자 배출의 원동력.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <section class="section">
+      <span class="kicker">교안 &amp; 강의 자료</span>
+      <p class="h-desc">실제 수업에 사용한 강의 교안입니다. 카드를 클릭하면 슬라이드 교안이 새 탭에서 열립니다.</p>
+      <div class="methods-grid">
+        <a class="method-card link-card" href={`${base}uploads/deck-problem-definition/index.html`} target="_blank" rel="noopener">
+          <img class="thumb" src={`${base}uploads/thumb-problem-definition.png`} alt="문제정의 교안 표지" loading="lazy" />
+          <h3>문제정의 교안 <span class="arrow" aria-hidden="true">↗</span></h3>
+          <p>'문제를 어떻게 정의할 것인가'를 다루는 실제 강의 슬라이드(43면). 새 탭에서 열립니다.</p>
+        </a>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <section class="section">
+      <span class="kicker">훈련생 성과 / Student Outcomes</span>
+      <div class="methods-grid">
+        <div class="method-card">
+          <h3>해커톤 수상</h3>
+          <div class="oc-list">
+            <div class="oc-item">
+              <div class="oc-head">2024 KDT 해커톤 · <span class="oc-award">대상(국무총리상)</span></div>
+              <p class="oc-body">'밥은 먹고 다니니' 팀 — 1회차 수강생이 프로덕트 디자이너로 참여.</p>
+              <div class="oc-links"><a href="https://www.ksqa.or.kr/kdthackathon/event/event6.do" target="_blank" rel="noopener">공식 결과 ↗</a></div>
+            </div>
+            <div class="oc-item">
+              <div class="oc-head">2025 KDT 해커톤 · <span class="oc-award">장려상(고용노동부 장관상)</span></div>
+              <p class="oc-body">'로컬프렌즈' 팀 — 4회차 수강생 2명이 프로덕트 디자이너로 참여.</p>
+              <div class="oc-links"><a href="https://www.ksqa.or.kr/kdthackathon/event/event7.do" target="_blank" rel="noopener">공식 결과 ↗</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="method-card">
+          <h3>취업 성과</h3>
+          <div class="oc-list">
+            <div class="oc-item">
+              <div class="oc-head">1회차 · <span class="oc-award">취업률 53.8%</span></div>
+              <p class="oc-body">토스·캐시워크·오픈서베이 등.</p>
+            </div>
+            <div class="oc-item">
+              <div class="oc-head">4회차</div>
+              <p class="oc-body">100인 이상 중견·중소 IT 기업 다수 취업.</p>
+            </div>
+          </div>
+        </div>
+        <div class="method-card">
+          <h3>합반 프로젝트 쇼케이스</h3>
+          <p class="oc-body">담당한 회차의 합반프로젝트 수상작.</p>
+          <div class="oc-links">
+            수상팀: <a href="https://deepdive.goorm.io/collab_project_2" target="_blank" rel="noopener">1회차</a> · <a href="https://deepdive.goorm.io/2e04e699-7fb0-80fa-bb80-df30c7e6d267" target="_blank" rel="noopener">4회차 ①</a> · <a href="https://deepdive.goorm.io/2e04e699-7fb0-809e-b3a5-e37c5b0a06be" target="_blank" rel="noopener">4회차 ②</a><br />
+            <a href="https://deepdive.goorm.io/showcase" target="_blank" rel="noopener">구름 전체 쇼케이스 →</a>
+          </div>
+        </div>
+      </div>
+      <p class="outcome-note">결과물은 훈련생의 것이며, 여기서는 그 성과를 이끈 지도·설계의 효과로 제시합니다.</p>
+    </section>
+
+    <hr class="rule" />
+
+    <Footer />
+  </div>
+</Base>

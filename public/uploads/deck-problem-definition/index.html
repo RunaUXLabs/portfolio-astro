@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>문제정의 — 교안</title>
+  <script src="./support.js"></script>
+</head>
+
+<body>
+  <x-dc>
+    <helmet>
+      <link rel="stylesheet" href="_ds/nocturne-bd437095-78a6-46e1-a604-9fe9e6f79d28/styles.css">
+      <script src="_ds/nocturne-bd437095-78a6-46e1-a604-9fe9e6f79d28/_ds_bundle.js"></script>
+      <script src="image-slot.js"></script>
+      <title>문제정의 — 교안</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+      <link rel="stylesheet" href="deck.css">
+    </helmet>
+    <x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080"
+      hint-size="100%,100%" data-uneditable="">
+
+      <section class="slide cover" data-label="표지" data-screen-label="01"
+        data-speaker-notes="1교시 문제정의. 오늘 관통 사례는 배달앱 '바로배달'의 첫 주문 미완료 문제입니다.">
+        <div class="kicker"><span>PROBLEM DEFINITION</span></div>
+        <div class="rise">
+          <h1 class="display">문제 정의</h1>
+          <p class="cover-sub text-muted">프로덕트 디자이너를 위한 프론트엔드 개발 융합 실무 과정</p>
+        </div>
+        <div class="pin-bottom meta"><span>Problem Definition</span><span>·</span><span>관통 사례: 배달앱의 첫 주문 미완료</span>
+        </div>
+      </section>
+
+      <section class="slide content" data-label="Agenda" data-screen-label="02"
+        data-speaker-notes="네 파트로 진행합니다. 배우는 순서와 실무 적용 순서는 다르다는 점을 미리 알려두세요.">
+        <div class="kicker"><span>AGENDA</span></div>
+        <h2 class="slide-title">교과목 순서</h2>
+        <div class="cards g2 rise">
+          <div class="dcard">
+            <div class="n">PART 1</div>
+            <h3>문제 정의</h3>
+            <p>중요성 · 필요한 3가지 · 문제 정의문 작성법 · 좋은 정의 판별</p>
+          </div>
+          <div class="dcard">
+            <div class="n">PART 2</div>
+            <h3>고객 경험(CX) 데이터 분석</h3>
+            <p>데이터로 문제 발견 · 정량/정성 · 여정맵 · 2026 트렌드 · 보고서</p>
+          </div>
+          <div class="dcard">
+            <div class="n">PART 3</div>
+            <h3>제품요구사항명세서(PRD)</h3>
+            <p>개념 · 문서 비교 · 문제정의문→PRD · 문서 계층 · SSOT · 실무 프로세스</p>
+          </div>
+          <div class="dcard">
+            <div class="n">PART 4</div>
+            <h3>5 Whys</h3>
+            <p>개념 · 배달앱 적용 예시 · 흔한 실수</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="전체 지도" data-screen-label="03"
+        data-speaker-notes="발견-진단-정의-전달. 이 네 단계가 오늘 덱의 지도입니다. 배우는 순서는 정의부터지만 실무는 발견부터 시작합니다.">
+        <div class="kicker"><span>OVERVIEW</span></div>
+        <h2 class="slide-title">문제정의의 전체 여정</h2>
+        <div class="flow rise">
+          <div class="flow-step">
+            <div class="n">① 발견</div>
+            <h3>CX 데이터 분석</h3>
+            <p>첫 주문 18%</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">② 진단</div>
+            <h3>5 Whys</h3>
+            <p>재방문 유저 편향</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">③ 정의</div>
+            <h3>문제 정의문</h3>
+            <p>한 문장</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">④ 전달</div>
+            <h3>PRD</h3>
+            <p>팀 전달</p>
+          </div>
+        </div>
+        <p class="statement sm">명확한 문제 정의는, 검증된 PRD를 만듭니다.</p>
+        <p class="note-fine">배우는 순서 ≠ 실무 적용 순서 — 강의는 정의(Part 1)부터, 실무는 발견(Part 2)부터 시작합니다.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide divider" data-label="Part 1 디바이더" data-screen-label="04"
+        data-speaker-notes="Part 1을 시작합니다.">
+        <div class="rise">
+          <div class="ghost-num">01</div>
+          <h2 class="slide-title">훌륭한 설계를 위한 문제 정의의 필요성</h2>
+        </div>
+      </section>
+
+      <section class="slide content" data-label="중요성 6가지" data-screen-label="05"
+        data-speaker-notes="여섯 가지를 다 읽지 말고, 사용자 중심과 리스크 관리 두 개를 예로 풀어 설명하세요.">
+        <div class="kicker"><span>PART 1 · 문제정의</span></div>
+        <h2 class="slide-title">문제 정의가 중요한 6가지 이유</h2>
+        <div class="cards g3 rise">
+          <div class="dcard">
+            <div class="n">01</div>
+            <h3>사용자 중심의 접근</h3>
+            <p>사용자의 문제를 정확히 이해하는 데서 <br>시작해, 실질적 가치를 주는 솔루션을 설계합니다.</p>
+          </div>
+          <div class="dcard">
+            <div class="n">02</div>
+            <h3>명확한 목표 설정</h3>
+            <p>프로젝트의 방향성을 정하고 목표를 명확히 하는 데 필수입니다.</p>
+          </div>
+          <div class="dcard">
+            <div class="n">03</div>
+            <h3>팀의 생산성 향상</h3>
+            <p>문제가 명확하면 팀원이 같은 목표를 향해 효율적으로 일합니다.</p>
+          </div>
+          <div class="dcard">
+            <div class="n">04</div>
+            <h3>비즈니스 성공과 직결</h3>
+            <p>사용성·심미성을 넘어, 제품이 시장에서 <br>성공하도록 방향을 잡습니다.</p>
+          </div>
+          <div class="dcard">
+            <div class="n">05</div>
+            <h3>리스크 관리</h3>
+            <p>잘못된 방향으로 자원을 쓰기 전에 문제 <br>자체를 검증합니다.</p>
+          </div>
+          <div class="dcard">
+            <div class="n">06</div>
+            <h3>효율적인 솔루션 개발</h3>
+            <p>시간·인력·비용을 효율적으로 배분하고 활용합니다.</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="필요한 3가지" data-screen-label="06"
+        data-speaker-notes="세 가지는 순서가 아니라 동시에 필요한 조건입니다.">
+        <div class="kicker"><span>PART 1 · 문제정의</span></div>
+        <h2 class="slide-title">문제정의에 필요한 3가지</h2>
+        <div class="cols cols-3 rise">
+          <div>
+            <p class="sub">01</p>
+            <h3>사용자 이해</h3>
+            <p>사용자의 목적과 기대를 파악해야 문제를 정확히 이해할 수 있습니다.</p>
+          </div>
+          <div>
+            <p class="sub">02</p>
+            <h3>목표 설정</h3>
+            <p>기대 상태와 현재 상태를 비교하고, <br>벤치마킹으로 목표를 명확히 합니다.</p>
+          </div>
+          <div>
+            <p class="sub">03</p>
+            <h3>데이터 기반 접근</h3>
+            <p>유저 리서치와 데이터로 문제를 정의하고, 가장 효과적인 해결책을 찾습니다.</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="문제 정의문" data-screen-label="07"
+        data-speaker-notes="공식의 네 칸을 배달앱 문장에서 하나씩 짚어 주세요. 이 문장은 슬라이드 35에서 다시 나옵니다.">
+        <div class="kicker"><span>PART 1 · 문제정의</span></div>
+        <h2 class="slide-title">문제 정의문 — 한 문장으로</h2>
+        <p class="lead">데이터로 발견하고 5 Whys로 진단했다면, 팀이 공유할 한 문장으로 압축합니다.</p>
+        <div class="formula rise">
+          <span class="chip">사용자</span>
+          <span class="arw" aria-hidden="true">→</span>
+          <span class="chip">목표 · 니즈</span>
+          <span class="arw" aria-hidden="true">→</span>
+          <span class="chip">장애물 · 현상</span>
+          <span class="arw" aria-hidden="true">→</span>
+          <span class="chip">부정적 결과</span>
+        </div>
+        <p class="statement sm">“신규 사용자는 첫 끼니를 빠르게 주문하고 싶지만, 가치를 느끼기 전에 <br>주소 입력을 요구받고 배달비를 결제 직전에야 마주쳐, <br>첫 주문을 완료하지
+          못한 채 이탈합니다.”</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="POV &amp; HMW" data-screen-label="08"
+        data-speaker-notes="POV는 문제를 좁히고, HMW는 아이디에이션의 문을 엽니다.">
+        <div class="kicker"><span>PART 1 · 문제정의</span></div>
+        <h2 class="slide-title">POV &amp; HMW</h2>
+        <div class="cols cols-2 rise">
+          <div>
+            <p class="sub">POV(Point of View)</p>
+            <h3>[사용자]는 [니즈]가 필요하다. 왜냐하면 [인사이트].</h3>
+            <p>“신규 사용자는 ‘지금 뭘·얼마에 시킬 수 있는지’ 먼저 알 방법이 <br>필요하다. 첫 경험의 확신이 첫 주문의 조건이므로.”</p>
+          </div>
+          <div>
+            <p class="sub">HMW(How Might We)</p>
+            <h3>어떻게 하면 [사용자]가 [니즈]를 할 수 있을까?</h3>
+            <p>“어떻게 하면 신규 사용자가 주소·결제 부담 전에 ‘주문할 이유’를 <br>확신하게 할까?”</p>
+          </div>
+        </div>
+        <p class="note-fine">POV는 문제를 날카롭게 만들고, HMW는 해결의 문을 여는 질문입니다.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="세 가지 문장" data-screen-label="09"
+        data-speaker-notes="같은 사례가 형식에 따라 어떻게 달리 표현되는지 비교해 보여주세요.">
+        <div class="kicker"><span>PART 1 · 문제정의</span></div>
+        <h2 class="slide-title">같은 문제, 세 가지 문장</h2>
+        <div class="steps rise">
+          <div class="step">
+            <div class="lab">정의문 공식</div>
+            <p>신규 사용자는 가치를 느끼기 전 주소·배달비 부담에 막혀 첫 주문을 못 하고 이탈한다</p>
+          </div>
+          <div class="step">
+            <div class="lab">POV</div>
+            <p>신규 사용자는 ‘지금 뭘·얼마에’ 먼저 알 방법이 필요하다</p>
+          </div>
+          <div class="step">
+            <div class="lab">HMW</div>
+            <p>어떻게 하면 부담 전에 ‘주문할 이유’를 확신하게 할까?</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="좋은 정의 4조건" data-screen-label="10"
+        data-speaker-notes="다음 슬라이드의 Before/After가 이 네 조건의 적용 사례입니다.">
+        <div class="kicker"><span>PART 1 · 문제정의</span></div>
+        <h2 class="slide-title">좋은 문제 정의의 4가지 조건</h2>
+        <div class="cards g2 rise">
+          <div class="dcard">
+            <div class="n">①</div>
+            <h3>해결책 배제</h3>
+            <p>답을 미리 정하지 않습니다. <br>정의문에 솔루션이 들어가면 탐색이 닫힙니다.</p>
+          </div>
+          <div class="dcard">
+            <div class="n">②</div>
+            <h3>측정 가능</h3>
+            <p>데이터로 확인할 수 있어야 합니다. <br>지표 없는 문제는 검증도 없습니다.</p>
+          </div>
+          <div class="dcard">
+            <div class="n">③</div>
+            <h3>사용자 관점</h3>
+            <p>회사의 목표가 아니라 사용자의 고통을 기술합니다.</p>
+          </div>
+          <div class="dcard">
+            <div class="n">④</div>
+            <h3>적절한 범위</h3>
+            <p>한 스프린트에 다룰 수 있는 크기로 좁힙니다.</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="나쁜 정의 → 좋은 정의" data-screen-label="11"
+        data-speaker-notes="세 행을 하나씩 읽고, 고친 점이 앞 슬라이드의 몇 번 조건인지 확인시켜 주세요.">
+        <div class="kicker"><span>PART 1 · 문제정의</span></div>
+        <h2 class="slide-title">나쁜 정의 → 좋은 정의</h2>
+        <table class="table rise" style="margin-top: 52px">
+          <thead>
+            <tr>
+              <th>나쁜 정의</th>
+              <th>좋은 정의</th>
+              <th>고친 점</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="bad">“주소 입력창을 간소화하자”</td>
+              <td class="good">“신규 유저가 가치를 느끼기 전 주소 입력을 요구받아 이탈한다”</td>
+              <td>해결책 → 문제 ①</td>
+            </tr>
+            <tr>
+              <td class="bad">“온보딩이 별로다”</td>
+              <td class="good">“첫 실행 후 주소 설정 단계에서 27%p 이탈한다”</td>
+              <td>막연함 → 측정가능 ②</td>
+            </tr>
+            <tr>
+              <td class="bad">“첫 주문 전환율을 올려야 한다”</td>
+              <td class="good">“신규 유저가 첫 주문할 ‘이유’를 진입 시점에 못 찾는다”</td>
+              <td>회사목표 → 사용자관점 ③</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide divider" data-label="Part 2 디바이더" data-screen-label="12"
+        data-speaker-notes="Part 2를 시작합니다.">
+        <div class="rise">
+          <div class="ghost-num">02</div>
+          <h2 class="slide-title">고객 경험(CX) 데이터 분석</h2>
+        </div>
+      </section>
+
+      <section class="slide content" data-label="신규 유저 퍼널" data-screen-label="13"
+        data-speaker-notes="정량은 어디서 새는지, 정성은 왜 새는지 말해줍니다. 두 이탈 구간이 뒤 5 Whys의 출발점입니다.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <h2 class="slide-title">데이터로 발견 — 신규 유저 퍼널</h2>
+        <div class="funnel rise">
+          <div class="frow">
+            <div class="fl">설치</div>
+            <div class="ftrack">
+              <div class="ffill" style="width: 100%"></div>
+            </div>
+            <div class="fv">100%</div>
+          </div>
+          <div class="frow">
+            <div class="fl">첫 실행</div>
+            <div class="ftrack">
+              <div class="ffill" style="width: 82%"></div>
+            </div>
+            <div class="fv">82%</div>
+          </div>
+          <div class="frow drop">
+            <div class="fl">주소 설정</div>
+            <div class="ftrack">
+              <div class="ffill" style="width: 55%"></div>
+            </div>
+            <div class="fv">55% · −27%p</div>
+          </div>
+          <div class="frow">
+            <div class="fl">가게 진입</div>
+            <div class="ftrack">
+              <div class="ffill" style="width: 50%"></div>
+            </div>
+            <div class="fv">50%</div>
+          </div>
+          <div class="frow">
+            <div class="fl">장바구니</div>
+            <div class="ftrack">
+              <div class="ffill" style="width: 30%"></div>
+            </div>
+            <div class="fv">30%</div>
+          </div>
+          <div class="frow drop">
+            <div class="fl">결제 완료</div>
+            <div class="ftrack">
+              <div class="ffill" style="width: 18%"></div>
+            </div>
+            <div class="fv">18% · −12%p</div>
+          </div>
+        </div>
+        <div class="cards g3" style="margin-top: 40px">
+          <div class="dcard">
+            <div class="n">리뷰</div>
+            <p>“주소 넣기 귀찮아 삭제” · “배달비 보고 나감”</p>
+          </div>
+          <div class="dcard">
+            <div class="n">인터뷰</div>
+            <p>“뭘 시킬지 보기도 전에 위치부터 물어봐요”</p>
+          </div>
+          <div class="dcard">
+            <div class="n">세션 리플레이</div>
+            <p>주소 화면에서 Rage Tap과 과다 체류 관찰</p>
+          </div>
+        </div>
+        <p class="note-fine">정량은 ‘어디서’, 정성은 ‘왜’ — 합쳐야 문제가 보입니다. 모든 수치는 강의용 예시 데이터입니다.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="CX 데이터 개념" data-screen-label="14"
+        data-speaker-notes="접점(touchpoint) 개념을 짚고 다음 두 슬라이드의 정량/정성으로 넘어갑니다.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <h2 class="slide-title">CX 데이터 수집 개념</h2>
+        <ul class="bullets rise">
+          <li>CX 데이터는 고객이 기업과 상호작용하는 <span class="hl">모든 접점의 경험을 측정·분석</span>하여 <br>경험을 개선하는 데이터입니다.</li>
+          <li>구매 과정, 제품 사용, 고객 서비스까지 모두 포함합니다.</li>
+        </ul>
+        <table class="table" style="margin-top: var(--space-3)">
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>브라커스 외 (2009)</th>
+              <th>홀랜드 (2013)</th>
+              <th>개념의 비교</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tcenter"><span class="tag tag-accent">UX</span></td>
+              <td class="tcenter">제품 경험</td>
+              <td class="tcenter">사용자 경험</td>
+              <td>소비자(사용자)가 제품을 탐색하고 조사해 보고 평가해보면서 발생하는 경험</td>
+            </tr>
+            <tr class="row-merged">
+              <td rowspan="2" class="tcenter"
+                style="color: #161826; background: linear-gradient(to right, transparent, color-mix(in srgb, var(--color-text) 8%, transparent) 48px) no-repeat bottom / 100% 1px">
+                <span class="tag tag-accent">CX</span>
+              </td>
+              <td class="tcenter">쇼핑 및 서비스 경험</td>
+              <td rowspan="2" class="tcenter merge-fade">고객 경험</td>
+              <td>제품이나 서비스 매장의 물리적 환경이나 판매원으로부터 영향을 받는 경험</td>
+            </tr>
+            <tr class="row-merged">
+              <td class="tcenter merge-fade">소비 경험</td>
+              <td
+                style="background: linear-gradient(to right, color-mix(in srgb, var(--color-text) 8%, transparent), color-mix(in srgb, var(--color-text) 8%, transparent) calc(100% - 48px), transparent) no-repeat bottom / 100% 1px">
+                소비자가 제품을 사용하거나 소비하면서 나타나는 경험</td>
+            </tr>
+            <tr>
+              <td class="tcenter"><span class="tag tag-accent">BX</span></td>
+              <td class="tcenter">브랜드 경험</td>
+              <td class="tcenter">브랜드 경험</td>
+              <td>브랜드와 관련된 자극이 소비자의 주관적이고 내재적인 반응과 결합되어 일어나는 경험</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note-fine">출처: 〈브랜드 디자인학 연구〉 중 BX 개념적 고찰 / dsruptr.com (2019)</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="정량적 데이터" data-screen-label="15"
+        data-speaker-notes="서비스 형태에 따라 측정 도구가 달라집니다. Web은 GA4로 충분, App은 설치 성과(MMP)+인앱 행동(PA)을 함께 심어야 전환 전 구간이 보입니다. 유입은 마지막 터치 채널에 100% 귀속(어트리뷰션 7일). 내부는 제품에 SDK를 심고, 외부는 광고 채널 성과를 모아 각 도구 대시보드에서 봅니다.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <h2 class="slide-title">정량적 데이터 분석</h2>
+        <p class="lead">서비스 형태에 따라 측정 도구가 달라집니다. Web은 <span class="strong">GA4</span>로 충분하지만, App은 설치 성과(<span
+            class="strong">MMP</span>)와 인앱 행동(<span class="strong">PA</span>)을 함께 측정해야 합니다.</p>
+
+        <div class="qpath">
+          <span class="ql">Web 전용</span>
+          <span class="qnode">Web 랜딩</span><span class="qarr">→</span><span class="qtool">GA4</span><span
+            class="qarr">→</span><span class="qnode">Web 구매</span>
+        </div>
+        <div class="qpath">
+          <span class="ql">App 전환</span>
+          <span class="qnode">App 설치</span><span class="qarr">→</span><span class="qtool">MMP</span><span
+            class="qarr">→</span><span class="qnode app">App 구매</span><span class="qarr">→</span><span
+            class="qtool">PA</span><span class="qarr">→</span><span class="qnode app">App 행동</span>
+        </div>
+
+        <div class="cards g3 rise">
+          <div class="dcard">
+            <div class="n">GA4</div>
+            <h3>Google Analytics 4</h3>
+            <p><span class="strong">뜻</span> 웹·앱 사용자 행동을 재는 구글의 통합 애널리틱스<br><span class="strong">쓰임</span> Web 위주 서비스 —
+              단독으로 충분</p>
+          </div>
+          <div class="dcard">
+            <div class="n">MMP</div>
+            <h3>Mobile Measurement Partner</h3>
+            <p><span class="strong">뜻</span> 앱스토어에 SDK를 붙여 앱 ‘설치’ 성과·유입을 측정하는 파트너<br><span class="strong">쓰임</span> App
+              위주 — 설치 성과·유입 경로 · Appsflyer · Adjust · Airbridge</p>
+          </div>
+          <div class="dcard">
+            <div class="n">PA</div>
+            <h3>Product Analytics</h3>
+            <p><span class="strong">뜻</span> MMP를 연동해 ‘설치 이후’ 인앱 행동(구매·리텐션)을 분석<br><span class="strong">쓰임</span> App 위주
+              — 설치 다음 단계 · Amplitude · Mixpanel</p>
+          </div>
+        </div>
+
+        <p class="note-fine"><b>내부</b> 제품에 SDK 탑재 ＋ <b>외부</b> 광고 채널 성과 → 각 도구 <b>대시보드에서 통합 확인</b></p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="정성적 데이터" data-screen-label="16"
+        data-speaker-notes="정성 데이터는 감정·태도·기대를 다룹니다. 앞 슬라이드와 같은 구조로 대비시키세요.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <h2 class="slide-title">정성적 데이터 분석</h2>
+        <p class="lead">고객의 감정·태도·기대를 이해합니다. <br>설문과 인터뷰로 수집하며 심층 인사이트를 얻는 데 유리합니다.</p>
+        <div class="cols cols-2 rise">
+          <div>
+            <p class="sub">내부</p>
+            <h3>고객 후기 · 체험 댓글</h3>
+            <p>앱스토어 리뷰, CS 문의, 체험단 코멘트.</p>
+          </div>
+          <div>
+            <p class="sub">외부</p>
+            <h3>설문 · SNS 반응</h3>
+            <p>설문 결과, SNS·포털 커뮤니티 반응.</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="고객 피드백 분석" data-screen-label="17"
+        data-speaker-notes="피드백은 수집에서 끝나지 않고 개선과 재측정으로 순환합니다.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <h2 class="slide-title">고객 피드백 분석</h2>
+        <p class="lead">고객이 직접 제공한 의견을 분석해 문제를 식별하고 개선 기회를 찾습니다. <br>설문·리뷰·소셜미디어에서 수집합니다.</p>
+        <div class="flow mini rise">
+          <div class="flow-step">
+            <h3>수집</h3>
+            <p>설문 · 리뷰 · 소셜</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <h3>분류 · 분석</h3>
+            <p>주제별 태깅과 빈도</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <h3>개선 실행</h3>
+            <p>우선순위 → 실험</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <h3>효과 검증</h3>
+            <p>지표 재측정 → 순환</p>
+          </div>
+        </div>
+        <p class="note-fine">예: 리뷰에서 다수가 배송 지연을 지적 → 물류 시스템 개선으로 연결.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="활동 안내" data-screen-label="18"
+        data-speaker-notes="어피니티 다이어그램 방법은 별도 교과목에서 학습했으므로 여기서 가르치지 않습니다. 이 슬라이드는 강사가 말로 안내할 때 띄우는 앵커입니다.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <h2 class="slide-title">활동 — CX 데이터로 페인포인트의 근거 만들기</h2>
+        <p class="lead" style="margin-bottom: var(--space-4)">수집한 CX 데이터를 어피니티 다이어그램으로 분류하고,<br>본인의 페인포인트에서 출발해 데이터 근거를
+          마련합니다.</p>
+        <div class="cols cols-2 rise" style="gap: var(--space-4)">
+          <div class="info-card">
+            <p class="sub">기본</p>
+            <h3>데이터에서 현상 발견</h3>
+            <p>수집한 데이터를 분류하고, 반복되는 패턴이나 문제 현상을 식별합니다.</p>
+          </div>
+          <div class="info-card accent">
+            <p class="sub">심화</p>
+            <h3>"왜 이 데이터가 이럴까?" — 근본 원인</h3>
+            <p>현상 너머의 원인을 파고듭니다.<br>→ Part 4 · 5 Whys 기법과 연결됩니다.</p>
+          </div>
+        </div>
+        <p class="note-fine rise" style="margin-top: var(--space-3)">실무의 완성형 CX 분석 보고서는 '여기서 더 나아가면 이런 것까지 간다'는 지향점으로만
+          안내합니다.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="여정맵 이론" data-screen-label="19"
+        data-speaker-notes="저니맵은 페르소나와 시나리오가 먼저 정의돼야 성립합니다. 여섯 개 행 구성을 외우게 하세요.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <h2 class="slide-title">고객 여정 맵핑 — 이론</h2>
+        <p class="lead">전체 과정을 시각화해 각 접점의 경험을 분석하고, 단계별 문제를 식별합니다.</p>
+        <div class="cards g3 rise">
+          <div class="dcard">
+            <div class="n">ROW 01</div>
+            <h3>Phases</h3>
+            <p>여정의 단계 구분</p>
+          </div>
+          <div class="dcard">
+            <div class="n">ROW 02</div>
+            <h3>Actions</h3>
+            <p>단계별 사용자 행동</p>
+          </div>
+          <div class="dcard">
+            <div class="n">ROW 03</div>
+            <h3>Touchpoints</h3>
+            <p>접점 — 화면·채널·사람</p>
+          </div>
+          <div class="dcard">
+            <div class="n">ROW 04</div>
+            <h3>Thoughts · Feelings</h3>
+            <p>생각과 감정 곡선</p>
+          </div>
+          <div class="dcard">
+            <div class="n">ROW 05</div>
+            <h3>Painpoints</h3>
+            <p>막히는 지점</p>
+          </div>
+          <div class="dcard">
+            <div class="n">ROW 06</div>
+            <h3>Opportunities</h3>
+            <p>개선 기회 도출</p>
+          </div>
+        </div>
+        <p class="note-fine">전제: 페르소나·시나리오가 먼저 정의돼야 성립합니다 · 분석 항목 예(교육 콘텐츠): 콘텐츠 소비 패턴 / 전환율 / 이탈율</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="여정맵 예시" data-screen-label="20"
+        data-speaker-notes="알바몬 유료상품 선택 저니맵. 결제 직전 감정 하락이 배달앱 사례의 결제 직전 이탈과 같은 구조입니다.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <h2 class="slide-title">고객 여정 맵핑 — 예시<span
+            style="color: color-mix(in srgb, var(--color-text) 55%, transparent); font-size: 24px; letter-spacing: normal;">(인용:
+            4회차 사장님사이드 알바몬 유료상품 선택)</span></h2>
+        <figure class="rise" style="margin: 40px 0 0; text-align: center; height: 764px; width: 1522px">
+          <img src="assets/journey-map-albamon.png" alt="알바몬 유료상품 선택 저니맵"
+            style="max-width: 100%; max-height: 753px; width: auto; border-radius: 8px; background: #fff; display: inline-block">
+        </figure>
+
+
+      </section>
+
+      <section class="slide content trend" data-label="트렌드 01 · 제로파티" data-screen-label="21"
+        data-speaker-notes="단정하지 말고 전망으로 소개하세요. 다음 네 장도 같은 구성(정의·수집 포인트·예시 화면)으로 갑니다.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <p class="tgroup-label">2026 CX 데이터 수집을 위한 5대 핵심 키워드 · 01/05</p>
+        <h2 class="slide-title">제로 파티 데이터 &amp; 게이미피케이션 <span class="en">(Zero-Party Data &amp; Gamified Input)</span>
+        </h2>
+        <p class="lead rise">사용자가 브랜드에 자발적으로 제공하는 데이터(취향, 피부 타입, 투자 성향 등)를 ‘제로 파티 데이터’라고 합니다. <br>지루한 설문조사 대신,
+          게임이나 퀴즈 형태의 ‘상호작용형 입력 도구’가 표준이 될 전망입니다.</p>
+        <p class="tsub-label">CX 데이터 수집 포인트</p>
+        <div class="tpoints">
+          <div class="tpoint tpoint-fill">
+            <h3>온보딩 퀴즈 (Onboarding Quiz)</h3>
+            <p>“어떤 스타일을 원하세요?”를 묻는 대신, 이미지 이상형 월드컵을 진행하여 취향 <br>데이터를 수집.</p>
+          </div>
+          <div class="tpoint tpoint-fill">
+            <h3>슬라이더 &amp; 탭 인터랙션</h3>
+            <p>텍스트 입력 대신 슬라이더를 조절하며 자신의 예산이나 선호도를 입력하게 유도.</p>
+          </div>
+        </div>
+        <p class="note-fine tip">문제정의 시사점 — 사용자가 자발적으로 제공한 데이터는 페인포인트 정의의 가장 신뢰도 높은 근거가 됩니다.</p>
+        <figure class="tfig rise"><img alt="제로파티 데이터 예시 — 비교 슬라이더, 가격 범위 필터" width="1720" height="834"
+            style="width: 1720px; height: 100%; aspect-ratio: 1720 / 834; object-fit: fill; border-radius: 8px"
+            src="./image-1-msd9lumc-gf0o.png"></figure>
+
+      </section>
+
+      <section class="slide content trend" data-label="트렌드 02 · 대화형 UX" data-screen-label="22"
+        data-speaker-notes="검색창 대신 대화가 데이터를 만든다는 점을 강조하세요.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <p class="tgroup-label">2026 CX 데이터 수집을 위한 5대 핵심 키워드 · 02/05</p>
+        <h2 class="slide-title">의도 기반 대화형 UX <span class="en">(Intent-Driven Conversational UX)</span></h2>
+        <p class="lead rise">검색창에 키워드를 치는 것이 아니라, 자연어로 대화하며 사용자의 숨겨진 니즈(의도)를 파악하는 UI입니다. 디자이너는 AI가 사용자에게
+          ‘되물어보는(Follow-up Question)’ 시나리오를 설계하여 구체적인 데이터를 확보할 수 있습니다.</p>
+        <p class="tsub-label">예시</p>
+        <div class="tpoints">
+          <div class="tpoint tpoint-fill">
+            <h3>프롬프트 큐레이션</h3>
+            <p>사용자가 무엇을 물어볼지 몰라 할 때, 선택 가능한 질문 칩(Chip)을 제시하여 <br>관심사 데이터를 수집.</p>
+          </div>
+          <div class="tpoint tpoint-fill">
+            <h3>피드백 루프 (Feedback Loop)</h3>
+            <p>AI 답변에 대해 “좋아요/나빠요” 혹은 “다시 생성해줘” 버튼을 배치하여, 사용자의 만족도 데이터를 실시간으로 수집.</p>
+          </div>
+        </div>
+        <p class="note-fine tip">문제정의 시사점 — 대화 로그에서 반복되는 질문 패턴이 곧 해결되지 않은 문제를 가리킵니다.</p>
+        <figure class="tfig rise"><img src="./image-2-msd9t028-0nnw.png" alt="의도 기반 대화형 UX 예시 — 챗봇, 3D 리모델링 어시스턴트"
+            width="1720" height="520" style="width: 1720px; height: auto; aspect-ratio: 1720 / 520; border-radius: 8px">
+        </figure>
+
+      </section>
+
+      <section class="slide content trend" data-label="트렌드 03 · 행동 센싱" data-screen-label="23"
+        data-speaker-notes="카메라 렌즈가 검색창을 대체한다는 프레임으로 소개하세요.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <p class="tgroup-label">2026 CX 데이터 수집을 위한 5대 핵심 키워드 · 03/05</p>
+        <h2 class="slide-title">행동 센싱과 컨텍스트 오버레이 <span class="en">(Behavioral Sensing &amp; Context Overlay)</span></h2>
+        <p class="lead rise">사용자가 직접 입력하지 않아도, 스마트폰 센서(카메라, GPS, 자이로스코프)를 통해 사용자의 환경과 행동 데이터를 수집하는 UX입니다. ‘카메라 렌즈’가
+          텍스트 검색창을 보완하는 강력한 데이터 수집 도구로 부상하고 있습니다.</p>
+        <p class="tsub-label">CX 데이터 수집 포인트</p>
+        <div class="tpoints">
+          <div class="tpoint tpoint-fill">
+            <h3>비주얼 검색 (Visual Search)</h3>
+            <p>텍스트 입력 대신 사진을 찍어 상품을 찾게 함으로써, 사용자의 현재 상황(맥락) <br>데이터를 수집.</p>
+          </div>
+          <div class="tpoint tpoint-fill">
+            <h3>AR 시착 데이터</h3>
+            <p>사용자가 AR로 가구를 배치해보거나 안경을 써보는 과정에서, ‘얼마나 오래 <br>머물렀는지(Dwell Time)’, ‘어떤 각도로 보았는지’ 행동 데이터를 추적.</p>
+          </div>
+        </div>
+        <p class="note-fine tip">문제정의 시사점 — 센서 데이터는 사용자가 말로 표현하지 못하는 맥락적 페인포인트를 드러냅니다.</p>
+        <figure class="tfig rise"><img src="./image-3-msd9t8mr-qiv9.png" alt="행동 센싱 예시 — 이미지 검색, AR 시착" width="1720"
+            height="367" style="width: 1674px; height: 357px; aspect-ratio: 1720 / 367; border-radius: 8px"></figure>
+
+      </section>
+
+      <section class="slide content trend" data-label="트렌드 04 · 실버 접근성" data-screen-label="24"
+        data-speaker-notes="4번은 뒤 5 Whys의 위치권한 원인과 연결됩니다. 히트맵은 에러 데이터가 문제 지점을 지목하는 예시입니다.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <p class="tgroup-label">2026 CX 데이터 수집을 위한 5대 핵심 키워드 · 04/05</p>
+        <h2 class="slide-title">실버 접근성과 에러 데이터 <span class="en">(Silver Accessibility &amp; Error Data)</span></h2>
+        <p class="lead rise">고령층 사용자가 겪는 어려움은 곧 서비스의 개선 포인트입니다. 디자이너는 사용자가 어디서 멈칫거리는지, 어디서 잘못 누르는지 ‘에러 데이터(Rage
+          Tap·도움말 호출)’를 수집하여 UX를 최적화하는 ‘간편 모드’를 설계할 수 있습니다.</p>
+        <p class="tsub-label">CX 데이터 수집 포인트</p>
+        <div class="tpoints">
+          <div class="tpoint tpoint-fill">
+            <h3>레이지 터치(Rage Taps) 감지</h3>
+            <p>버튼이 아닌 곳을 반복적으로 누르거나, 세게 누르는 행위를 감지하여 UI 문제를 파악.</p>
+          </div>
+          <div class="tpoint tpoint-fill">
+            <h3>체류 시간 및 도움말 호출</h3>
+            <p>특정 화면에서 오래 머물거나 ‘도움말’을 찾는 행동을 데이터화하여 인지 부하가 높은 구간을 식별.</p>
+          </div>
+        </div>
+        <p class="note-fine tip">문제정의 시사점 — 에러 데이터(Rage Tap·도움말 호출)는 인지 부하가 높은 구간을 정량적으로 지목합니다.</p>
+
+        <figure class="tfig rise"
+          style="display: flex; justify-content: center; background-color: var(--color-accent-2-100); border-radius: 8px">
+          <img src="./image-4-msd9u97e-wnlp.png" alt="에러 데이터 예시 — 히트맵과 호버·클릭 통계" width="1216" height="703"
+            style="width: 1216px; height: auto; aspect-ratio: 1216 / 703">
+        </figure>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content trend" data-label="트렌드 05 · 투명성 UI" data-screen-label="25"
+        data-speaker-notes="5번은 뒤 5 Whys의 비용·동의 원인과 연결됩니다. 적시 동의가 전환율을 좌우한다는 점을 강조하세요.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <p class="tgroup-label">2026 CX 데이터 수집을 위한 5대 핵심 키워드 · 05/05</p>
+        <h2 class="slide-title">투명성 인터페이스와 신뢰 데이터 <span class="en">(Transparency UI &amp; Trust Data)</span></h2>
+        <p class="lead rise">사용자가 자신의 데이터를 기업에 넘겨줄 때 느끼는 불안감을 해소하고, ‘데이터 주권’을 보장하는 UI입니다. <br>“왜 이 데이터를 수집하는가?”를 시각적으로
+          명확히 설명해야만 데이터 수집 동의율을 높일 수 있습니다.</p>
+        <p class="tsub-label">CX 데이터 수집 포인트</p>
+        <div class="tpoints">
+          <div class="tpoint tpoint-fill">
+            <h3>적시 동의 요청 (Just-in-Time Consent)</h3>
+            <p>앱 설치 직후가 아니라, 특정 기능(예: 지도)을 쓸 때 권한을 요청하여 동의율을 높임.</p>
+          </div>
+          <div class="tpoint tpoint-fill">
+            <h3>데이터 대시보드</h3>
+            <p>사용자가 자신이 제공한 데이터를 확인하고 언제든 철회할 수 있는 ‘MY 데이터 <br>관리’ 페이지 설계.</p>
+          </div>
+        </div>
+        <p class="note-fine tip">문제정의 시사점 — 동의율 하락 자체가 신뢰 문제라는 페인포인트의 정량 근거가 됩니다.</p>
+
+        <figure class="tfig rise"><img src="./image-5-msd9xvk8-30ny.png" alt="투명성 UI 예시 — 권한 안내와 적시 동의 화면" width="1720"
+            height="541" style="width: 1720px; height: auto; aspect-ratio: 1720 / 541; border-radius: 8px"></figure>
+
+
+      </section>
+
+      <section class="slide content" data-label="CX 보고서 구성" data-screen-label="26"
+        data-speaker-notes="열 개 섹션을 다 읽지 말고, 고객만족도 지표와 개선영역 권장만 짚으세요. 보고서 처음 쓸 때 겁먹지 말라는 메시지를 전달하세요.">
+        <div class="kicker"><span>PART 2 · CX 데이터 분석</span></div>
+        <h2 class="slide-title">보고서 처음 써본다구요? 겁먹지 말고..</h2>
+        <p class="lead" style="margin-bottom: var(--space-2)">데이터 오케스트레이션을 통해 고객에 대한 깊이 있는 이해를 바탕으로 보고서를 작성함으로써 조직의
+          의사결정자들에게 유용한 정보를 제공할 수 있습니다. 또한 측정 가능한 데이터 분석을 통해 고객 이탈률, 고객 생애 가치, 문제 해결 시간 등의 구체적인 지표(정량)를 포함하면 보고서의 가치를 높일
+          수 있습니다.</p>
+        <p style="font-size: 26px; color: var(--color-accent-300); margin: 0 0 var(--space-3)">실무의 CX 분석 보고서엔 아래와 같은
+          데이터를 넣습니다.</p>
+        <div class="cxr-grid rise">
+          <div class="cxr-head">개요</div>
+          <div class="cxr-head">고객만족도지표</div>
+          <div class="cxr-head">고객여정분석</div>
+          <div class="cxr-head">채널별 성과</div>
+          <div class="cxr-head">고객세그먼트 분석</div>
+          <div class="cxr-body div">
+            <ul class="cxr-list">
+              <li>보고서의 목적</li>
+              <li>주요 발견사항 요약</li>
+              <li>데이터 수집 기간 및 방법론</li>
+            </ul>
+          </div>
+          <div class="cxr-body div">
+            <ul class="cxr-list">
+              <li>고객 만족도 점수 (CSAT)</li>
+              <li>순추천지수 (NPS)</li>
+              <li>고객 노력 점수 (CES)</li>
+            </ul>
+          </div>
+          <div class="cxr-body div">
+            <ul class="cxr-list">
+              <li>주요 접점별 고객 경험 데이터</li>
+              <li>여정 내 페인 포인트 식별</li>
+            </ul>
+          </div>
+          <div class="cxr-body div">
+            <ul class="cxr-list">
+              <li>웹사이트, 모바일 앱 등 채널별 CX 지표</li>
+              <li>채널 간 일관성 분석</li>
+            </ul>
+          </div>
+          <div class="cxr-body div">
+            <ul class="cxr-list">
+              <li>주요 고객 세그먼트별 CX 데이터 비교</li>
+              <li>세그먼트별 특징 및 니즈 분석</li>
+            </ul>
+          </div>
+          <div class="cxr-head">정성적 피드백 분석</div>
+          <div class="cxr-head">경쟁사 벤치마킹</div>
+          <div class="cxr-head">개선 영역 및 권장사항</div>
+          <div class="cxr-head">트렌드 분석</div>
+          <div class="cxr-head">부록</div>
+          <div class="cxr-body">
+            <ul class="cxr-list">
+              <li>고객 리뷰 및 피드백의 주요 테마</li>
+              <li>감성 분석 결과</li>
+            </ul>
+          </div>
+          <div class="cxr-body">
+            <ul class="cxr-list">
+              <li>주요 경쟁사 대비 CX 성과 비교</li>
+              <li>업계 평균 대비 위치</li>
+            </ul>
+          </div>
+          <div class="cxr-body">
+            <ul class="cxr-list">
+              <li>데이터 기반 개선 기회 식별</li>
+              <li>구체적인 액션 아이템 제안</li>
+            </ul>
+          </div>
+          <div class="cxr-body">
+            <ul class="cxr-list">
+              <li>시계열 데이터를 통한 CX 트렌드 파악</li>
+              <li>주요 지표의 변화 추이</li>
+            </ul>
+          </div>
+          <div class="cxr-body">
+            <ul class="cxr-list">
+              <li>상세 데이터 테이블</li>
+              <li>설문 문항 및 방법론 세부 사항</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="slide divider" data-label="Part 3 디바이더" data-screen-label="27"
+        data-speaker-notes="Part 3을 시작합니다.">
+        <div class="rise">
+          <div class="ghost-num">03</div>
+          <h2 class="slide-title">제품요구사항명세서(PRD)</h2>
+        </div>
+      </section>
+
+      <section class="slide content" data-label="PRD 뜯어보기" data-screen-label="28"
+        data-speaker-notes="PRD는 '무엇을'을 넘어 '왜 중요하고 어떤 지표로 성공을 측정하나'에 집중합니다.">
+        <div class="kicker"><span>PART 3 · PRD</span></div>
+        <h2 class="slide-title">PRD 뜯어보기</h2>
+        <p class="lead">PRD는 제품의 <span class="hl">문제 공간(Problem Space)</span>과 <span class="hl">솔루션 범위(Scope)</span>를
+          정의하는 전략 문서입니다.</p>
+        <div class="cols cols-2 rise">
+          <div>
+            <p class="sub">구성요소</p>
+            <h3>다섯 개 블록</h3>
+            <p>배경·목적(Context &amp; Goals) / 사용자 스토리 / 성공 지표(KPI·OKR) / 제약·비기능 요구사항 / 비대상 범위(Out of Scope)</p>
+          </div>
+          <div>
+            <p class="sub">역할</p>
+            <h3>팀이 PRD를 쓰는 이유</h3>
+            <p>개발 로드맵 · 커뮤니케이션 도구 · 의사결정의 기준점</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="문서 비교" data-screen-label="29"
+        data-speaker-notes="같은 로그인 기능이 세 문서에서 어떻게 다르게 쓰이는지 비교하세요.">
+        <div class="kicker"><span>PART 3 · PRD</span></div>
+        <h2 class="slide-title">PRD vs UI정의서 vs 기능명세서</h2>
+        <table class="table dense rise" style="margin-top: 44px">
+          <thead>
+            <tr>
+              <th></th>
+              <th>목적 · 관점</th>
+              <th>표현 방식</th>
+              <th>예시</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="hl">PRD</td>
+              <td>무엇을 왜 — 비즈니스·사용자 관점</td>
+              <td>서술형 · 표 · 유즈케이스</td>
+              <td>유저는 로그인으로 콘텐츠에 접근할 수 있어야 한다</td>
+            </tr>
+            <tr>
+              <td class="hl">UI 정의서</td>
+              <td>UI 구성과 흐름 — UX/UI 관점</td>
+              <td>와이어프레임 · 화면 플로우</td>
+              <td>로그인 화면: ID·PW 입력, 로그인 버튼</td>
+            </tr>
+            <tr>
+              <td class="hl">기능명세서</td>
+              <td>시스템 동작 — 기술 관점</td>
+              <td>테이블 · 플로우차트 · 시퀀스</td>
+              <td>POST /login, JWT 발급, 401 처리</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="문제정의문 → PRD" data-screen-label="30"
+        data-speaker-notes="사용자 스토리 세 개가 정의문의 세 장애물과 1:1로 대응합니다. North Star와 Guardrail을 함께 두는 습관을 강조하세요.">
+        <div class="kicker"><span>PART 3 · PRD</span></div>
+        <h2 class="slide-title">문제정의문 → PRD (배달앱 첫 주문 개선)</h2>
+        <dl class="deflist rise">
+          <dt>배경 · 목적</dt>
+          <dd>첫 주문 전환율(D7) <span class="hl">18%</span>, 근본원인은 ‘재방문 유저 기준 설계’. 첫 경험을 탐색 → 가치 → 행동으로 재설계.</dd>
+          <dt>타겟 페르소나</dt>
+          <dd>앱을 처음 설치하고 주소·결제 수단이 등록되지 않은 신규 유저.</dd>
+          <dt>사용자 스토리</dt>
+          <dd>① 주소 입력 전 인기 메뉴·예상 금액(배달비 포함) 노출 ② 위치 권한은 가게 탐색 시점에 요청 ③ 결제 진입 전 배달비·최소주문금액 공개</dd>
+          <dt>성공 지표 (KPI)</dt>
+          <dd>
+            <ul class="kpi-list">
+              <li><strong>북극성 지표 (North Star)</strong> — 팀이 가장 우선적으로 추적하는 단일 핵심 지표. D7 첫 주문 전환율 18% → <span
+                  class="hl">30%</span></li>
+              <li><strong>보조 지표 (Secondary)</strong> — 북극성 지표를 뒷받침하는 선행 지표. 주소 입력 완료율 55% → 75%</li>
+              <li><strong>가드레일 지표 (Guardrail)</strong> — 다른 지표를 개선하는 동안 절대 악화되면 안 되는 안전판 지표. 위치 권한 허용률 급락 없기</li>
+            </ul>
+          </dd>
+          <dt>제약 · 비기능</dt>
+          <dd>권한·개인정보 동의 시점 규정, 배달비 실시간 계산 API 성능.</dd>
+          <dt>Out of Scope</dt>
+          <dd>결제수단 다양화 · 리뷰 개편 · 재방문 온보딩.</dd>
+        </dl>
+        <p class="note-fine">북극성 지표와 가드레일 지표를 함께 두는 것이 좋은 PRD의 습관입니다 · 수치는 강의용 예시 데이터.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="문서 계층 L1–L2" data-screen-label="31"
+        data-speaker-notes="Level 1은 PM, Level 2는 프로덕트 디자이너의 영역입니다.">
+        <div class="kicker"><span>PART 3 · PRD</span></div>
+        <h2 class="slide-title">문서 계층 — Level 1·2</h2>
+        <div class="cards g2 rise">
+          <div class="dcard">
+            <div class="n">LEVEL 1 · PM</div>
+            <h3>Epic / PRD</h3>
+            <p>비즈니스 배경 · 성공 지표 · 핵심 스토리 · Scope</p>
+            <p class="imp">산출물: 컨셉 스케치, lo-fi 와이어 · 도구: Notion, Confluence, Docs</p>
+          </div>
+          <div class="dcard">
+            <div class="n">LEVEL 2 · PD</div>
+            <h3>UX Logic &amp; Flows</h3>
+            <p>유저 플로우 · 상태 다이어그램 · IA</p>
+            <p class="imp">산출물: 화면 연결·분기 로직 · 도구: FigJam, Miro(PRD 임베드)</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="문서 계층 L3–L4" data-screen-label="32"
+        data-speaker-notes="네 문서의 흐름을 하나의 라인으로 정리해 주세요.">
+        <div class="kicker"><span>PART 3 · PRD</span></div>
+        <h2 class="slide-title">문서 계층 — Level 3·4</h2>
+        <div class="cards g2 rise">
+          <div class="dcard">
+            <div class="n">LEVEL 3 · PD</div>
+            <h3>PDD — Product Design Document</h3>
+            <p>픽셀 퍼펙트 · 컴포넌트 속성 · 인터랙션 · 다크모드/반응형</p>
+            <p class="imp">도구: Figma Dev Mode, Storybook</p>
+          </div>
+          <div class="dcard">
+            <div class="n">LEVEL 4 · TECH LEAD</div>
+            <h3>SDD — Software Design Document</h3>
+            <p>API 스키마 · DB 구조 · 성능</p>
+            <p class="imp">도구: Github Markdown, Swagger</p>
+          </div>
+        </div>
+        <div class="flow mini">
+          <div class="flow-step">
+            <h3>PRD</h3>
+            <p>왜 · 무엇</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <h3>PDD</h3>
+            <p>어떻게 보일지</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <h3>SDD</h3>
+            <p>어떻게 구현</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <h3>Coding</h3>
+            <p>구현</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="SSOT" data-screen-label="33"
+        data-speaker-notes="정보 중복이 곧 버그입니다. 색상값을 PRD에 적는 순간 두 개의 진실이 생깁니다.">
+        <div class="kicker"><span>PART 3 · PRD</span></div>
+        <h2 class="slide-title">SSOT 유지 전략</h2>
+        <p class="lead">핵심은 정보 중복 회피 — 하나의 권위 있는 출처만 둡니다.</p>
+        <div class="cols cols-2 rise">
+          <div>
+            <p class="sub">원칙 1</p>
+            <h3>참조하라, 복제하지 마라</h3>
+            <p>PRD에 ‘#0045FF’ 대신 ‘Primary Action Color 토큰’ 또는 Figma 링크를 씁니다.</p>
+          </div>
+          <div>
+            <p class="sub">원칙 2</p>
+            <h3>진실의 우선순위</h3>
+            <p>비즈니스 로직은 PRD가 진실, UI 디테일은 Figma가 진실. 충돌 시 로직은 PRD, 심미는 Figma를 따릅니다.</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="프로세스 ① Lean Agile" data-screen-label="34"
+        data-speaker-notes="세 프로세스는 같은 4단계 틀로 비교합니다. 스타트업은 문서를 줄이고 링크로 연결합니다.">
+        <div class="kicker"><span>PART 3 · PRD</span></div>
+        <h2 class="slide-title">실무 프로세스 ① Lean Agile</h2>
+        <p class="lead">스타트업·고속성장팀 — 문서화를 최소화하고 속도를 중시합니다.</p>
+        <div class="flow rise">
+          <div class="flow-step">
+            <div class="n">STEP 1</div>
+            <h3>Kick-off</h3>
+            <p>PM이 문제정의·가설 공유</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">STEP 2</div>
+            <h3>Exploration</h3>
+            <p>PD가 시안 탐색</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">STEP 3</div>
+            <h3>Sync</h3>
+            <p>Figma 링크 임베드, 자동 업데이트</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">STEP 4</div>
+            <h3>Handoff</h3>
+            <p>Jira에 PRD + Figma Dev 링크</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="프로세스 ② Structured Handoff" data-screen-label="35"
+        data-speaker-notes="승인 절차가 있는 조직은 변경관리가 핵심입니다.">
+        <div class="kicker"><span>PART 3 · PRD</span></div>
+        <h2 class="slide-title">실무 프로세스 ② Structured Handoff</h2>
+        <p class="lead">중견 기업·에이전시 — 책임과 승인 절차가 명확합니다.</p>
+        <div class="flow rise">
+          <div class="flow-step">
+            <div class="n">STEP 1</div>
+            <h3>Requirements Freeze</h3>
+            <p>PRD v1.0 확정</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">STEP 2</div>
+            <h3>PDD Creation</h3>
+            <p>Screen ID · Element 번호 · 상세 설명</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">STEP 3</div>
+            <h3>검토 · 승인</h3>
+            <p>개발 리드 · QA</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">STEP 4</div>
+            <h3>변경관리</h3>
+            <p>PDD 버전 up · Changelog</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="프로세스 ③ System-Driven" data-screen-label="36"
+        data-speaker-notes="디자인 시스템이 있으면 PDD의 상당 부분을 시스템이 대체합니다.">
+        <div class="kicker"><span>PART 3 · PRD</span></div>
+        <h2 class="slide-title">실무 프로세스 ③ System-Driven</h2>
+        <p class="lead">체계화된 조직 — 디자인 시스템이 PDD의 역할을 대체합니다.</p>
+        <div class="flow rise">
+          <div class="flow-step">
+            <div class="n">STEP 1</div>
+            <h3>PRD는 기능만</h3>
+            <p>화면 스펙 없이 요구사항</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">STEP 2</div>
+            <h3>컴포넌트 조립</h3>
+            <p>PD가 시스템 부품으로 구성</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">STEP 3</div>
+            <h3>일반 스펙 생략</h3>
+            <p>Storybook이 문서 역할</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">STEP 4</div>
+            <h3>커스텀만 명시</h3>
+            <p>문서 작업 시간 70%↓</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide divider" data-label="Part 4 디바이더" data-screen-label="37"
+        data-speaker-notes="Part 4를 시작합니다.">
+        <div class="rise">
+          <div class="ghost-num">04</div>
+          <h2 class="slide-title">5 Whys 알아보기</h2>
+        </div>
+      </section>
+
+      <section class="slide content" data-label="5 Whys 뜯어보기" data-screen-label="38"
+        data-speaker-notes="도요타 생산방식에서 온 기법입니다. 표면 현상에서 벗어나는 것이 목적입니다.">
+        <div class="kicker"><span>PART 4 · 5 WHYS</span></div>
+        <h2 class="slide-title">5 Whys 뜯어보기</h2>
+        <p class="lead">표면 현상에서 벗어나 근본 원인을 파악해, 효과적인 해결책에 도달합니다.</p>
+        <div class="flow mini rise">
+          <div class="flow-step">
+            <h3>문제 식별</h3>
+            <p>현상과 지표 확인</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <h3>1 Why</h3>
+            <p>현상의 직접 원인</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <h3>후속 질문 반복</h3>
+            <p>원인의 원인으로</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <h3>해결책 도출 · 실행</h3>
+            <p>근본 원인에 대응</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <h3>효과 검증</h3>
+            <p>지표로 확인</p>
+          </div>
+        </div>
+        <p class="note-fine">5 Whys는 도요타 생산방식(오노 다이이치)에서 유래했습니다.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="5 Whys 예시" data-screen-label="39"
+        data-speaker-notes="WHY2는 슬라이드 24의 적시 동의, WHY3는 슬라이드 19의 결제 직전 부담과 연결됩니다.">
+        <div class="kicker"><span>PART 4 · 5 WHYS</span></div>
+        <h2 class="slide-title">5 Whys 도입 예시 — 원인 파악</h2>
+        <p class="lead">현상: 신규 설치 유저의 <span class="hl">82%가 7일 내 첫 주문에 도달하지 못합니다</span>(전환율 18%).</p>
+        <div class="whys rise">
+          <div class="why">
+            <div class="lab">WHY 1</div>
+            <p>왜 첫 주문에 못 가나 → 주소 설정에서 절반이 이탈하고, 결제 직전 비용에서 다시 이탈한다</p>
+          </div>
+          <div class="why">
+            <div class="lab">WHY 2</div>
+            <p>왜 주소에서 이탈하나 → 가치를 느끼기 전에 위치 권한과 주소부터 요구한다</p>
+          </div>
+          <div class="why">
+            <div class="lab">WHY 3</div>
+            <p>왜 결제 직전 이탈하나 → 배달비·최소주문금액이 마지막에야 드러나 손해감을 준다</p>
+          </div>
+          <div class="why">
+            <div class="lab">WHY 4</div>
+            <p>왜 가치를 못 느낀 채 입력하나 → 온보딩이 ‘무엇을·얼마에’를 보여주지 않고 행동부터 요구한다</p>
+          </div>
+          <div class="why root">
+            <div class="lab">WHY 5</div>
+            <p>근본원인 → 앱이 재방문 유저 기준으로 설계됨 = <span class="strong">재방문 유저 편향(Returning-User Bias)</span></p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="5 Whys 결론" data-screen-label="40"
+        data-speaker-notes="슬라이드 7의 정의문과 같은 문장으로 닫습니다. 진단이 정의로 수렴하는 순간입니다.">
+        <div class="kicker"><span>PART 4 · 5 WHYS</span></div>
+        <h2 class="slide-title">5 Whys — 결론과 문제 정의</h2>
+        <p class="lead">근본원인(Root Cause): 재방문 유저 기준의 설계가 신규 유저의 첫 경험(맥락, 가치, 비용 투명성)을 무시하고 있습니다.</p>
+        <p class="statement rise">“신규 사용자는 가치를 느끼기 전 주소·배달비 부담에 막혀 첫 주문을 완료하지 못한 채 이탈한다.”</p>
+        <p class="note-fine">슬라이드 7의 문제 정의문과 동일한 문장 — 발견과 진단이 같은 정의로 수렴합니다.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="5 Whys 솔루션" data-screen-label="41"
+        data-speaker-notes="솔루션은 Why를 역순으로 되짚어 제안합니다. 각 항목이 어느 Why에 대응하는지 명시하세요.">
+        <div class="kicker"><span>PART 4 · 5 WHYS</span></div>
+        <h2 class="slide-title">5 Whys — 솔루션</h2>
+        <p class="lead">초점 전환: 재방문 유저 기준에서 <span class="hl">신규 유저의 첫 경험 우선</span>으로.</p>
+        <div class="cards g3 rise">
+          <div class="dcard">
+            <div class="n">WHY 4 대응</div>
+            <h3>가치 먼저</h3>
+            <p>주소 입력 전에 인기 메뉴와 예상 금액을 미리 보여줍니다.</p>
+          </div>
+          <div class="dcard">
+            <div class="n">WHY 2 대응</div>
+            <h3>적시 권한</h3>
+            <p>위치 권한을 가게 탐색 시점에 요청합니다(Just-in-Time).</p>
+          </div>
+          <div class="dcard">
+            <div class="n">WHY 3 대응</div>
+            <h3>비용 선공개</h3>
+            <p>배달비와 최소주문금액을 결제 전에 노출합니다.</p>
+          </div>
+        </div>
+        <p class="note-fine">기대 결과: 첫 주문 전환율 개선 → Day 7 이탈 병목 해소.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="흔한 실수" data-screen-label="42"
+        data-speaker-notes="가장 흔한 실수는 1~2 Why에서 멈추는 것입니다. 복합 원인일 때의 대안 기법도 알려주세요.">
+        <div class="kicker"><span>PART 4 · 5 WHYS</span></div>
+        <h2 class="slide-title">5 Whys에서 흔히 하는 실수</h2>
+        <div class="cols cols-3 rise">
+          <div>
+            <p class="sub">①</p>
+            <h3>표면적 원인에 머무름</h3>
+            <p>1~2 Why에서 멈추고 대응책으로 넘어갑니다.</p>
+          </div>
+          <div>
+            <p class="sub">②</p>
+            <h3>질문 횟수를 고정</h3>
+            <p>꼭 다섯 번이 아닙니다. 근본 원인에 닿을 때까지 묻습니다.</p>
+          </div>
+          <div>
+            <p class="sub">③</p>
+            <h3>단일 원인 집착</h3>
+            <p>복합 원인을 간과합니다.</p>
+          </div>
+        </div>
+        <p class="lead">결과: 객관성 유지에 실패하고, 해결책 도출에도 실패합니다.</p>
+        <p class="note-fine">다중 원인에는 피시본(이시카와) 다이어그램·로직트리를 병행하세요.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide cover" data-label="닫기" data-screen-label="43"
+        data-speaker-notes="네 단계를 다시 짚으며 마무리합니다. 다음 시간에는 PRD를 직접 작성합니다.">
+        <div class="kicker"><span>CLOSING</span></div>
+        <div class="rise">
+          <h2 class="display">명확한 문제 정의는,<br>검증된 PRD를 만듭니다.</h2>
+        </div>
+        <div class="pin-bottom">
+          <div class="flow mini">
+            <div class="flow-step">
+              <h3>① 발견</h3>
+              <p>CX 데이터 분석</p>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <h3>② 진단</h3>
+              <p>5 Whys</p>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <h3>③ 정의</h3>
+              <p>문제 정의문</p>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <h3>④ 전달</h3>
+              <p>PRD</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </x-import>
+  </x-dc>
+  <script type="text/x-dc" data-dc-script
+    data-props="{&quot;footerNote&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;문제정의&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;덱 설정&quot;},&quot;showPageNumbers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;덱 설정&quot;},&quot;bodySize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:34,&quot;min&quot;:28,&quot;max&quot;:42,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;덱 설정&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { this.apply(); }
+  componentDidUpdate() { this.apply(); }
+  apply(tries) {
+    const stage = document.querySelector('deck-stage');
+    if (!stage) {
+      if ((tries ?? 0) < 60) requestAnimationFrame(() => this.apply((tries ?? 0) + 1));
+      return;
+    }
+    stage.style.setProperty('--page-foot-note', JSON.stringify(this.props.footerNote ?? '문제정의 · 1교시'));
+    stage.style.setProperty('--type-body', (this.props.bodySize ?? 34) + 'px');
+    if (this.props.showPageNumbers === false) stage.setAttribute('data-no-page-furniture', '');
+    else stage.removeAttribute('data-no-page-furniture');
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+
+</html>

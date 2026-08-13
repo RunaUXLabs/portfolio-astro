@@ -1,0 +1,152 @@
+/* Teaching 페이지 전용 스타일 */
+.section {
+  padding: calc(2.5 * var(--leading)) 0;
+}
+.history-item {
+  padding: var(--leading) 0;
+  position: relative;
+}
+.history-item + .history-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, color-mix(in srgb, var(--color-text) 8%, transparent) 48px calc(100% - 48px), transparent);
+}
+.h-period {
+  font-size: 13px;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+  font-feature-settings: "tnum" 1;
+}
+.h-title {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 20px;
+  margin: 0 0 6px;
+}
+.h-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+  margin: 0;
+  /* max-width: var(--measure); */
+  max-width: 54ch;
+}
+.section > .h-title {
+  margin-bottom: var(--half);
+}
+.section > .h-desc {
+  margin-bottom: var(--leading);
+}
+.methods-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 2.5vw, 28px);
+  margin-top: calc(var(--leading) + var(--half));
+}
+.method-card {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.method-card h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 16px;
+  margin: 0 0 var(--space-3);
+  color: var(--color-accent-300);
+}
+.method-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+  margin: 0;
+}
+.link-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.link-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .link-card:hover {
+    transform: none;
+  }
+}
+.link-card .arrow {
+  color: var(--color-accent);
+  font-size: 0.85em;
+}
+.link-card .thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-sm);
+  background: var(--color-neutral-800);
+  display: block;
+  margin-bottom: var(--space-3);
+}
+.sat-wrap {
+  margin-top: calc(var(--leading) + var(--half));
+  overflow-x: auto;
+}
+.sat-note {
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+  margin-top: var(--half);
+}
+.avg-cell {
+  color: var(--color-accent-300);
+  font-weight: 500;
+}
+.outcome-note {
+  font-size: 13px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+  margin-top: var(--leading);
+  max-width: var(--measure);
+}
+/* 훈련생 성과 카드 내부 구조 — 각 성과를 분리된 블록으로 */
+.oc-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.oc-item + .oc-item {
+  padding-top: var(--space-3);
+  border-top: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+.oc-head {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--color-text) 90%, transparent);
+  margin: 0 0 3px;
+}
+.oc-head .oc-award {
+  color: var(--color-accent-300);
+}
+.oc-body {
+  margin: 0;
+}
+.oc-links {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 6px;
+}
+
+@media (max-width: 720px) {
+  .methods-grid {
+    grid-template-columns: 1fr;
+  }
+}

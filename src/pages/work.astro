@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/pages/work.css';
+const base = import.meta.env.BASE_URL;
+---
+<Base
+  title="Work — 직접 만든 프로덕트 | Runa UX Labs"
+  description="강의와 병행해 직접 기획·디자인·개발한 프로덕트. MD to Figma 플러그인, modu 토스 챌린지 프로토타입."
+  current="work"
+>
+  <div class="wrap">
+    <header class="page-header">
+      <span class="kicker">Work</span>
+      <h1 class="page-title">Work</h1>
+      <p class="page-sub">강의와 병행해 직접 기획·디자인·개발한 프로덕트들.</p>
+    </header>
+
+    <hr class="rule" />
+
+    <div class="work-grid">
+      <a href={`${base}case-mdtofigma`} class="case-card">
+        <img class="thumb" src={`${base}uploads/thumb-mdtofigma.png`} alt="MD to Figma 커버" loading="lazy" />
+        <span class="ck">Product · Figma Plugin</span>
+        <h2 class="ct">MD to Figma</h2>
+        <p class="cb">마크다운 ⇄ Figma 양방향 디자인 시스템 엔진. Variables·Styles 생성과 추출을 한 번에. 기획·디자인·개발 1인 수행.</p>
+        <div class="tags">
+          <span class="tag tag-accent">Figma 커뮤니티 배포</span>
+          <span class="tag tag-neutral">GitHub</span>
+          <span class="tag tag-neutral">MIT</span>
+        </div>
+      </a>
+      <a href={`${base}case-modu`} class="case-card">
+        <img class="thumb" src={`${base}uploads/thumb-modu.png`} alt="modu · 모두의 시간 커버" loading="lazy" />
+        <span class="ck">Product · React Prototype</span>
+        <h2 class="ct">modu · 모두의 시간</h2>
+        <p class="cb">토스 2026 프로덕트 디자이너 챌린지 제출작. "침묵은 동의다" — 아무도 응답하지 않아도 회의가 확정되는 일정 시스템.</p>
+        <div class="tags">
+          <span class="tag tag-accent">토스 챌린지</span>
+          <span class="tag tag-neutral">GitHub</span>
+          <span class="tag tag-neutral">라이브 데모</span>
+        </div>
+      </a>
+    </div>
+
+    <hr class="rule" />
+
+    <Footer />
+  </div>
+</Base>
