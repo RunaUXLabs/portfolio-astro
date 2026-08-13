@@ -25,6 +25,8 @@ jobs:
         with:
           # pnpm 프로젝트 — 락파일(pnpm-lock.yaml)로 자동 감지되지만 명시해 둠
           package-manager: pnpm@latest
+          # pnpm@latest가 Node 22.13+ 를 요구해서 러너 기본 Node(20.x)와 충돌 — 명시적으로 고정
+          node-version: 22
 
   deploy:
     needs: build
