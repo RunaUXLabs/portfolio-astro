@@ -23,10 +23,9 @@ jobs:
       - name: Build with Astro
         uses: withastro/action@v3
         with:
-          # pnpm 프로젝트 — 락파일(pnpm-lock.yaml)로 자동 감지되지만 명시해 둠
-          package-manager: pnpm@latest
-          # pnpm@latest가 Node 22.13+ 를 요구해서 러너 기본 Node(20.x)와 충돌 — 명시적으로 고정
-          node-version: 22
+          # pnpm@latest(11.x)는 Node 22.13+ 가 필요해 러너 기본 Node(20.x)와 충돌하므로,
+          # 로컬 개발 환경과 동일한 pnpm 8 계열로 고정 (pnpm-lock.yaml도 lockfileVersion 6.0 = pnpm 8 포맷)
+          package-manager: pnpm@8
 
   deploy:
     needs: build
