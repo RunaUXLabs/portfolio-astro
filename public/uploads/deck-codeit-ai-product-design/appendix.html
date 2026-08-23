@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>부록 — AI 페르소나 FGI 재구성 (캡처용)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+  <link rel="stylesheet" href="_ds/nocturne-bd437095-78a6-46e1-a604-9fe9e6f79d28/styles.css">
+  <link rel="stylesheet" href="deck.css">
+  <style>
+    .deck-print {
+      --font-heading: "Inter", "Noto Sans KR", system-ui, sans-serif;
+      --font-body: "Inter", "Noto Sans KR", system-ui, sans-serif;
+      --type-title: 60px; --type-body: 34px; --type-small: 28px; --type-kicker: 24px;
+      --pad-x: 120px; --pad-top: 104px; --pad-bottom: 96px;
+    }
+    html, body { margin: 0; padding: 0; background: #0d0e18; }
+    .deck-print { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; }
+    .deck-print .slide {
+      position: relative; width: 1920px; height: 1080px; overflow: hidden; margin: 0 auto;
+      display: flex; flex-direction: column;
+      background: radial-gradient(120% 85% at 80% -10%, color-mix(in srgb, var(--color-accent-900) 75%, transparent), transparent 58%), var(--color-bg);
+      color: var(--color-text); font-family: var(--font-body);
+      padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+      print-color-adjust: exact; -webkit-print-color-adjust: exact;
+    }
+    .deck-print .slide.content { padding-top: 200px; }
+
+    /* 재구성 라벨 — 지우기 어렵게 우상단 고정 */
+    .recon {
+      position: absolute; top: 56px; right: var(--pad-x);
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 10px 22px; border-radius: 999px;
+      border: 1px solid var(--color-accent-600, #5d5294);
+      background: color-mix(in srgb, var(--color-accent-800) 40%, transparent);
+      color: var(--color-accent-200); font-size: 22px; letter-spacing: 0.03em;
+    }
+    .recon::before { content: "⟳"; font-size: 20px; }
+
+    .fgi { width: 100%; border-collapse: collapse; margin-top: 44px; font-size: 27px; }
+    .fgi th {
+      text-align: left; font-weight: 500; font-size: 23px; letter-spacing: 0.05em;
+      color: var(--color-accent); padding: 0 22px 18px 0;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .fgi td, .four td, .fgi th, .four th { text-wrap: initial; }
+    .fgi td { padding: 20px 22px 20px 0; vertical-align: top; line-height: 1.45;
+      border-bottom: 1px solid color-mix(in srgb, var(--color-text) 7%, transparent); }
+    .fgi .who { width: 210px; color: var(--color-neutral-300); white-space: nowrap; }
+    .fgi .why { color: var(--color-neutral-400); font-size: 24px; }
+    .fgi tr.star td { background: color-mix(in srgb, var(--color-accent-800) 34%, transparent); }
+    .fgi tr.star .ans { color: var(--color-accent-200); font-weight: 500; }
+    .fgi .same { color: color-mix(in srgb, var(--color-text) 52%, transparent); }
+    .star-mark { color: var(--color-accent); margin-right: 8px; }
+
+    .four { width: 100%; border-collapse: collapse; margin-top: 40px; font-size: 23px; }
+    .four th { text-align: left; font-weight: 500; font-size: 21px; color: var(--color-accent);
+      padding: 0 18px 16px 0; border-bottom: 1px solid var(--color-divider); }
+    .four td { padding: 16px 18px 16px 0; vertical-align: top; line-height: 1.4;
+      border-bottom: 1px solid color-mix(in srgb, var(--color-text) 7%, transparent); color: var(--color-neutral-300); }
+    .four td.nm { color: var(--color-text); white-space: nowrap; width: 168px; }
+    .four td.key { color: var(--color-accent-200); }
+    .four th.keyh { color: var(--color-accent-200); }
+
+    .promptbox {
+      margin-top: 36px; padding: 30px 36px; border-radius: var(--radius-md);
+      border: 1px solid var(--color-accent-700); background: color-mix(in srgb, var(--color-accent-900) 55%, transparent);
+      font-size: 27px; line-height: 1.6;
+    }
+    .promptbox .rule { color: var(--color-accent); font-size: 23px; letter-spacing: 0.05em; }
+    @page { size: 1920px 1080px; margin: 0; }
+    @media print { .deck-print { gap: 0; padding: 0; } .deck-print .slide { break-after: page; } }
+  </style>
+</head>
+
+<body>
+  <div class="deck-print">
+
+    <!-- A1 · 1차 실패 -->
+    <section class="slide content" data-label="부록 A1">
+      <div class="kicker"><span>부록 A1 · 슬라이드 11에서</span></div>
+      <span class="recon">재구성 — 원본 로그 아님</span>
+      <h2 class="slide-title">1차 FGI — <span class="hl">여섯 명이 같은 말을 했습니다</span></h2>
+      <p class="note-fine" style="margin-top:22px">페르소나를 <span class="strong">역할로만</span> 나눴을 때. 서로 다른 사정이 없으니 모델은 여섯 번 다 평균값을 냈다.</p>
+      <table class="fgi">
+        <tr><th class="who">페르소나</th><th>응답</th></tr>
+        <tr><td class="who">P1 주최자</td><td class="same">시간이 안 맞아서 힘들어요. 조율에 시간이 오래 걸립니다.</td></tr>
+        <tr><td class="who">P2 필참자</td><td class="same">시간이 안 맞아서 힘들어요. 다들 일정이 달라서요.</td></tr>
+        <tr><td class="who">P3 필참자</td><td class="same">서로 시간이 안 맞는 게 제일 불편합니다.</td></tr>
+        <tr><td class="who">P4 선택 참석</td><td class="same">일정 맞추는 데 시간이 오래 걸려요.</td></tr>
+        <tr><td class="who">P5 선택 참석</td><td class="same">시간이 안 맞아서 여러 번 물어봐야 해요.</td></tr>
+        <tr><td class="who">P6 선택 참석</td><td class="same">다들 바빠서 시간이 안 맞습니다.</td></tr>
+      </table>
+      <p class="statement sm" style="margin-top:40px">데이터가 아니라, <span class="strong">내가 이미 알던 걸 여섯 번 되돌려받은 것</span>이었습니다.</p>
+    </section>
+
+    <!-- A2 · 보정 -->
+    <section class="slide content" data-label="부록 A2">
+      <div class="kicker"><span>부록 A2 · 슬라이드 11에서</span></div>
+      <span class="recon">재구성 — 원본 로그 아님</span>
+      <h2 class="slide-title">보정 — 역할이 아니라 <span class="hl">사정</span>을 줬습니다</h2>
+      <table class="four">
+        <tr>
+          <th></th><th>① 상황과 제약</th><th>② 지금 쓰는 대안</th><th>③ 구체적 불만</th><th class="keyh">④ 절대 양보 못 하는 것</th>
+        </tr>
+        <tr><td class="nm">루나 <span style="color:var(--color-neutral-500)">주최자</span></td>
+          <td>이번 주 안에 모여야 한다</td><td>단체방에 “언제 되세요?”</td><td>답이 안 와서 두세 번 올린다</td>
+          <td class="key">재촉하는 사람으로 굳어지기 싫다</td></tr>
+        <tr><td class="nm">댄 <span style="color:var(--color-neutral-500)">필참</span></td>
+          <td>회의가 앞뒤로 붙어 있다</td><td>캘린더 보고 답한다</td><td>답했는데 또 바뀐다</td>
+          <td class="key">확정된 일정이 흔들리는 건 못 참는다</td></tr>
+        <tr><td class="nm">마라 <span style="color:var(--color-neutral-500)">필참</span></td>
+          <td>수요일은 외근</td><td>안 되는 날만 먼저 알린다</td><td>이유를 매번 설명해야 한다</td>
+          <td class="key">까다로운 사람으로 보이기 싫다</td></tr>
+        <tr><td class="nm">제시 <span style="color:var(--color-neutral-500)">선택</span></td>
+          <td>몰입 시간이 필요하다</td><td>웬만하면 맞춘다</td><td>안 가도 될 회의에 이름이 오른다</td>
+          <td class="key">집중 시간을 쪼개는 건 싫다</td></tr>
+        <tr><td class="nm">비비 <span style="color:var(--color-neutral-500)">선택</span></td>
+          <td>점심 직후 컨디션이 떨어진다</td><td>시간대만 슬쩍 흘린다</td><td>사소한 사정을 말하기 눈치보인다</td>
+          <td class="key">내 시간은 지키고 싶지만 말하는 건 부담</td></tr>
+        <tr><td class="nm">윌리엄 <span style="color:var(--color-neutral-500)">선택</span></td>
+          <td>이 주제에 깊이 관여 안 함</td><td>대체로 응답하지 않는다</td><td>참석 여부가 애매하다</td>
+          <td class="key">관심 없는 자리에 끌려나가기 싫다</td></tr>
+      </table>
+      <div class="promptbox">
+        <div class="rule">그리고 프롬프트에 두 줄</div>
+        <div style="margin-top:14px">① 동의하지 말고, 이 방식이 불편할 사람 입장에서 <span class="strong">반박하라</span>.</div>
+        <div>② 답변마다 <span class="strong">왜 그렇게 답했는지 이유</span>를 함께 쓰고, 위 네 칸 중 어디에서 나왔는지 밝혀라.</div>
+      </div>
+    </section>
+
+    <!-- A3 · 2차 발췌 -->
+    <section class="slide content" data-label="부록 A3">
+      <div class="kicker"><span>부록 A3 · 슬라이드 12에서</span></div>
+      <span class="recon">재구성 — 원본 로그 아님</span>
+      <h2 class="slide-title">2차 FGI — <span class="hl">이유 칸</span>이 진짜 재료였습니다</h2>
+      <table class="fgi">
+        <tr><th class="who">페르소나</th><th>답변</th><th style="width:520px">이유 — 어느 칸에서 왔는가</th></tr>
+        <tr class="star"><td class="who">루나</td>
+          <td class="ans"><span class="star-mark">★</span>“회의 잡는 거, 솔직히 너무 귀찮아요.”</td>
+          <td class="why">④ 재촉하는 사람이 되기 싫은데, 잡으려면 결국 재촉해야 한다</td></tr>
+        <tr class="star"><td class="who">루나</td>
+          <td class="ans"><span class="star-mark">★</span>“이런 건 막내가 했으면 좋겠어요.”</td>
+          <td class="why">④ 그 역할을 내가 계속 하고 싶지 않아서</td></tr>
+        <tr class="star"><td class="who">윌리엄</td>
+          <td class="ans"><span class="star-mark">★</span>“제가 정해봤자 결정권이 없으니까, 날짜가 애매해져요.”</td>
+          <td class="why">① 관여하지 않았고, 누가 꼭 와야 하는지도 모른다</td></tr>
+        <tr><td class="who">윌리엄</td>
+          <td>“누구를 빼도 되는지를 제가 어떻게 알아요. 그냥 다 부르게 되죠.”</td>
+          <td class="why">① 판단할 근거가 없으니 전원 소집이 안전하다</td></tr>
+        <tr><td class="who">댄</td>
+          <td>“저는 잡는 쪽이 아니라 답하는 쪽이라 그 부분은 잘 모르겠네요.”</td>
+          <td class="why">역할 밖 — 규칙 ①이 작동한 지점. 동의하지 않고 선을 그었다</td></tr>
+        <tr><td class="who">비비</td>
+          <td>“제가 어렵다고 하면 그게 단체방에 뜨나요? 그러면 말 안 할 것 같아요.”</td>
+          <td class="why">④ 사정을 말하는 것 자체가 부담 → 이의 비공개 전달 설계로</td></tr>
+      </table>
+      <p class="note-fine" style="margin-top:34px">★ 세 줄은 전부 <span class="strong">현상</span>이다. 왜 그러는지, 즉 동기는 여기서 나오지 않았다.</p>
+    </section>
+
+  </div>
+</body>
+
+</html>

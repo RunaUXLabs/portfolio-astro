@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI를 활용한 프로덕트 디자인 — AI User Research</title>
+  <script src="./support.js"></script>
+</head>
+
+<body>
+  <x-dc>
+    <helmet>
+      <link rel="stylesheet" href="_ds/nocturne-bd437095-78a6-46e1-a604-9fe9e6f79d28/styles.css">
+      <script src="_ds/nocturne-bd437095-78a6-46e1-a604-9fe9e6f79d28/_ds_bundle.js"></script>
+      <script src="image-slot.js"></script>
+      <title>AI를 활용한 프로덕트 디자인 — AI User Research</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+      <link rel="stylesheet" href="deck.css">
+    </helmet>
+    <x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080"
+      hint-size="100%,100%" data-uneditable="">
+
+      <!-- ══════════ 00:00 오프닝 ══════════ -->
+
+      <section class="slide cover" data-label="표지" data-screen-label="01"
+        data-speaker-notes="안녕하세요. 오늘은 'AI를 활용한 프로덕트 디자인'을 주제로 10분 이야기해보려고 합니다.">
+        <div class="kicker"><span>PRODUCT DESIGN × AI</span></div>
+        <div class="rise">
+          <h1 class="display">AI를 활용한<br>프로덕트 디자인</h1>
+          <p class="cover-sub text-muted">검증까지 가는 길을 짧게 만드는 법</p>
+        </div>
+        <div class="pin-bottom meta"><span>AI User Research</span><span>·</span><span>10분
+            강의</span><span>·</span><span>관통 사례:
+            회의 일정 조율 ‘모두의 시간’</span>
+        </div>
+      </section>
+
+      <section class="slide content" data-label="훅" data-screen-label="02"
+        data-speaker-notes="훅에서 바로 핵심 문장으로 넘어가지 말 것. 다리 한 줄이 필요하다 — '왜 그대로 못 쓰냐면, 그게 맞는지를 아직 모르니까.' 만드는 속도와 확인하는 속도의 비대칭을 여기서 심어야 6번 루프 슬라이드가 회수된다.">
+        <div class="kicker"><span>OPENING</span></div>
+        <h2 class="slide-title">“AI가 다 만들어주잖아”</h2>
+        <p class="lead">그런데 실제로 써보신 분들은 아실 겁니다.<br>만들어주긴 하는데, <span class="hl">그걸 그대로 쓸 수는 없죠.</span></p>
+        <p class="statement">만드는 건 빨라졌는데,<br><span class="strong">맞는지 확인하는 건 그대로입니다.</span></p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide cover" data-label="핵심 문장" data-screen-label="03"
+        data-speaker-notes="오늘 드릴 얘기는 하나예요. AI는 검증을 대신하지 않습니다. 검증까지 가는 길을 짧게 만들 뿐입니다.">
+        <div class="kicker"><span>KEY IDEA</span></div>
+        <div class="rise">
+          <h2 class="display">AI는 검증을 대신하지 않습니다.<br>검증까지 가는 길을 짧게 만들 뿐입니다.</h2>
+        </div>
+        <div class="pin-bottom meta"><span>이론</span><span>·</span><span>사례</span><span>·</span><span>실습 — 이 한 문장을 세 번
+            증명합니다</span>
+        </div>
+      </section>
+
+      <!-- ══════════ 00:45 PART 1 이론 ══════════ -->
+
+      <section class="slide divider" data-label="Part 1 디바이더" data-screen-label="04" data-speaker-notes="이론을 시작합니다.">
+        <div class="rise">
+          <div class="ghost-num">01</div>
+          <h2 class="slide-title">생성형 AI는 디자인 과정 어디에 붙는가</h2>
+        </div>
+      </section>
+
+      <section class="slide content" data-label="도구 지도" data-screen-label="05"
+        data-speaker-notes="도구 이름부터 나열하지 말고 '어디에 붙는가'로 봅니다. 네 단계를 짚고, 성격이 다르다는 것만 한 번 말한 뒤 넘어가세요. 여기서 시간 쓰면 사례가 잘립니다.">
+        <div class="kicker"><span>PART 1 · 이론</span></div>
+        <h2 class="slide-title">도구 이름이 아니라, <span class="hl">어디에 붙는가</span></h2>
+        <div class="flow rise">
+          <div class="flow-step">
+            <div class="n">① 발견</div>
+            <h3>리서치 · 페르소나 · FGI</h3>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">② 정의</div>
+            <h3>인터뷰 · VOC 클러스터링</h3>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">③ 발전</div>
+            <h3>무드보드(디자인 컨셉) · UI 초안</h3>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">④ 전달</div>
+            <h3>마이크로카피 · 핸드오프</h3>
+          </div>
+        </div>
+        <div class="terms">
+          <div class="term"><b>언어 모델</b> — 생각을 늘린다</div>
+          <div class="term"><b>Midjourney, 각 언어모델의 이미지생성 기능</b> — 분위기를 잡는다.</div>
+          <div class="term"><b>Google Stitch, Figma Make, V0, UX Pilot</b> — 골격을 뽑는다.</div>
+        </div>
+        <p class="note-fine">셋 다 그대로 쓰는 게 아니라 <span class="strong">초안 재료</span>로 받습니다. 오늘 사례는 ① 발견에 붙습니다.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+
+      <section class="slide content" data-label="검증 루프" data-screen-label="06"
+        data-speaker-notes="오늘의 핵심. 한 번 확인하고 끝나지 않습니다. 루프예요. AI는 0번과 1번에 붙고, 2번은 대체가 안 됩니다. 0·1이 짧아지면 루프를 더 자주 돌 수 있어요.">
+        <div class="kicker"><span>PART 1 · 이론</span></div>
+        <h2 class="slide-title">제품이 맞는지 확인하는 건, <span class="hl">루프</span>입니다</h2>
+        <div class="flow rise">
+          <div class="flow-step on">
+            <div class="n">0 · AI</div>
+            <h3>무엇을 검증할지 좁히기</h3>
+            <p>리서치 · 가설 · 페르소나 FGI</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step on">
+            <div class="n">1 · AI</div>
+            <h3>검증할 물건 만들기</h3>
+            <p>바이브 코딩 · 프로토타입</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step off">
+            <div class="n">2 · 사람만</div>
+            <h3>실제 사람에게 보여주기</h3>
+            <p>유저테스트 · 인터뷰</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step off">
+            <div class="n">3</div>
+            <h3>고치기</h3>
+            <p>다시 0번으로 ↩</p>
+          </div>
+        </div>
+        <div class="flow-cap">
+          <div><b>AI는 0번과 1번에 붙습니다.</b> 무엇을 물어볼지 좁히는 데 한 번, 물어볼 물건을 만드는 데 한 번.</div>
+          <div><b>2번은 대체가 안 됩니다.</b> 대신 0·1이 짧아지면 <b>루프를 더 자주 돌 수 있습니다.</b></div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+
+      <section class="slide content" data-label="가능성과 한계" data-screen-label="07"
+        data-speaker-notes="왼쪽은 빠르게, 오른쪽에서 시간을 쓰세요. 오른쪽 큰 글씨는 전부 '못 한다'로 끝납니다 — 화면만 봐도 한계로 읽히게 해둔 것이니 굳이 다시 풀어 말하지 말 것. 첫 줄의 '평균을 알아야 뭐가 튀는지 보인다'가 사례의 복선입니다.">
+        <div class="kicker"><span>PART 1 · 이론</span></div>
+        <h2 class="slide-title">0·1번에서 AI가 <span class="hl">해주는 것</span>, 못 하는 것</h2>
+        <div class="versus rise">
+          <div>
+            <p class="side-lab">AI가 해주는 것</p>
+            <dl>
+              <dt>탐색을 넓혀준다</dt>
+              <dd>시안 5개에 이틀 → 20개를 반나절</dd>
+              <dt>0에서 1을 만들어준다</dt>
+              <dd>빈 화면 앞에서 멈춰 있는 시간이 줄어든다</dd>
+              <dt>가설을 뽑아준다</dt>
+              <dd>실제 유저를 못 만날 때도 시작할 수 있다</dd>
+            </dl>
+          </div>
+          <div class="limit">
+            <p class="side-lab">AI가 못 하는 것</p>
+            <dl>
+              <dt>평균을 벗어나지 못한다</dt>
+              <dd>가장 흔한 답을 준다. 우리가 찾는 건 예외.</dd>
+              <dd> <span class="hl">다만 평균을 알아야 뭐가 튀는지도 보인다</span></dd>
+              <dt>근거를 만들지 못한다</dt>
+              <dd>AI 페르소나의 답은 가설이지 데이터가 아니다</dd>
+              <dt>대신 판단해주지 못한다</dt>
+              <dd>무엇을 물어볼지, 무엇을 남길지</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="이론 정리" data-screen-label="08"
+        data-speaker-notes="이론 파트를 이 한 문장으로 닫습니다.">
+        <div class="kicker"><span>PART 1 · 이론</span></div>
+        <h2 class="slide-title">그래서</h2>
+        <p class="statement lg rise">AI를 잘 쓰는 PD는<br>많이 만들기만 하는 사람이라기 보다,<br><span class="strong">더 자주 확인하는
+            사람</span>입니다.
+        </p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <!-- ══════════ 03:30 PART 2 사례 ══════════ -->
+
+      <section class="slide divider" data-label="Part 2 디바이더" data-screen-label="09"
+        data-speaker-notes="사례로 넘어갑니다. 여기서부터 톤을 바꾸세요 — 대본을 읽지 말고 키워드만 보고 말하기.">
+        <div class="rise">
+          <div class="ghost-num">02</div>
+          <h2 class="slide-title">0번째 검증 — 모두의 시간(Mod U)</h2>
+        </div>
+      </section>
+
+      <section class="slide content" data-label="과제와 0번째 검증" data-screen-label="10"
+        data-speaker-notes="흔한 문제라서 오히려 어려웠다는 점, 그리고 인터뷰 기회가 한 번뿐이었다는 제약을 짚으세요. 그래서 인터뷰 '앞에' 단계를 넣었다는 게 핵심입니다.">
+        <div class="kicker"><span>PART 2 · 사례 — 루프 0번</span></div>
+        <h2 class="slide-title">6명이 한 시간짜리 회의를 잡는다</h2>
+        <dl class="deflist rise">
+          <dt>과제</dt>
+          <dd>6명이 1시간 회의를 잡는 경험을 설계하라</dd>
+          <dt>어려운 이유</dt>
+          <dd>흔한 문제. <span class="strong">다들 답을 안다고 생각하는 문제</span>입니다</dd>
+          <dt>제약</dt>
+          <dd>실제 인터뷰 기회는 사실상 한 번</dd>
+        </dl>
+        <p class="statement">그래서 인터뷰 <span class="hl">앞에</span> 한 단계를 넣었습니다.<br>유저가 아니라, <span class="strong">제 질문을 검증하는
+            단계</span>.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="두 번의 실패" data-screen-label="11"
+        data-speaker-notes="두 번 실패, 두 번 보정. 네 번째 칸이 답을 갈랐고, '이유도 같이 써라'가 평균값 탐지기 역할을 했다는 점을 짚으세요. ▸ 부록 A1(6명이 같은 답)·A2(4칸+프롬프트 두 줄) 화면을 여기서 띄운다 — appendix.html">
+        <div class="kicker"><span>PART 2 · 사례</span></div>
+        <h2 class="slide-title">두 번 실패하고, 두 번 고쳤습니다</h2>
+        <div class="cards g2 rise">
+          <div class="dcard">
+            <div class="n">실패 ①</div>
+            <h3>역할로만 나눈 페르소나</h3>
+            <p>주최자 · 필참 · 선택. 여섯 명이 똑같은 말을 했습니다.<br>“시간이 안 맞아서 힘들어요.”</p>
+            <p class="imp">→ 4칸으로 재정의: 상황·제약 / 현재 대안 / 구체적 불만 / <span class="strong">절대 양보 못 하는 것</span></p>
+          </div>
+          <div class="dcard">
+            <div class="n">실패 ②</div>
+            <h3>AI가 너무 착하고, 이유를 안 쓴다</h3>
+            <p>“이런 기능 있으면 좋지 않나요?” → 여섯 명이 다 좋다고 함<br>이유가 없으니 진짜인지 평균인지 모름</p>
+            <p class="imp">→ 프롬프트에 두 줄: <span class="strong">“동의하지 말고 반박하라”</span> + <span class="strong">“왜 그렇게 답했는지
+                이유도 같이 써라”</span></p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="AI가 준 것" data-screen-label="12"
+        data-speaker-notes="세 줄을 순서대로 읽어주세요. 전부 '현상'이고 동기는 아직 안 나왔다는 게 포인트입니다. ▸ 부록 A3(이유 칸 발췌) 화면을 여기서 띄운다 — appendix.html. 재구성본임을 한마디로 밝힐 것.">
+        <div class="kicker"><span>PART 2 · 사례</span></div>
+        <h2 class="slide-title">AI가 준 것 — 여기까지였습니다</h2>
+        <div class="steps rise">
+          <div class="step">
+            <div class="lab">귀찮음</div>
+            <p>“회의 잡는 거, 솔직히 너무 귀찮아요.”</p>
+          </div>
+          <div class="step">
+            <div class="lab">떠넘김</div>
+            <p>“이런 건 막내가 했으면 좋겠어요.”</p>
+          </div>
+          <div class="step">
+            <div class="lab">부작용</div>
+            <p>“제가 정해봤자 결정권이 없으니까, 날짜가 애매해져요.” <span class="hl">— 막내 페르소나</span></p>
+          </div>
+        </div>
+        <p class="note-fine">전부 <span class="strong">현상</span>입니다. 왜 그러는지는 아직 나오지 않았습니다.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="이상함" data-screen-label="13"
+        data-speaker-notes="⏸ 여기서 2~3초 멈추세요. 이 강의에서 제일 오래 머물러야 하는 화면입니다.">
+        <div class="kicker"><span>PART 2 · 사례</span></div>
+        <h2 class="slide-title">그런데 이상했습니다</h2>
+        <p class="statement lg rise">그냥 귀찮은 일이면 아무한테나 넘기면 되는데,<br>왜 하필 <span class="strong">가장 권한 없는 사람</span>한테?</p>
+        <p class="note-fine">결과가 애매해진다는 걸 알면서도요<br>— 귀찮음으로는 설명이 안 됩니다</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="질문 교체" data-screen-label="14"
+        data-speaker-notes="왼쪽은 버린 질문, 오른쪽은 남긴 질문. 그리고 한 분을 만났다고 분명히 말하세요. 딱 한 분입니다.">
+        <div class="kicker"><span>PART 2 · 사례</span></div>
+        <h2 class="slide-title">그래서 질문을 바꿨습니다</h2>
+        <div class="qcompare rise">
+          <div class="qbox dropped">
+            <p class="side-lab">버린 질문</p>
+            <h3>“회의 잡을 때 뭐가 제일 불편하세요?”</h3>
+            <p>AI가 이미 답했습니다. 물어볼 필요가 없어졌습니다.</p>
+          </div>
+          <div class="qbox kept">
+            <p class="side-lab">남긴 질문</p>
+            <h3>“그 일, 왜 본인이 안 하려고 하셨어요?”</h3>
+            <p>이건 AI가 그렇다고 해서 믿을 수 있는 얘기가 아닙니다.</p>
+          </div>
+        </div>
+        <p class="quote-human">“관계비용만 나가고 저한테 돌아오는 건 없는데,<br>제가 왜 악역을 자처해요?”</p>
+        <p class="note-fine">— 심층 인터뷰 <span class="strong">1건</span>. 표본이 아니라 렌즈다.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="층위 전환" data-screen-label="15"
+        data-speaker-notes="위 띠는 '안 바뀌는 것'이다. 이득은 언제나 조직 몫. 아래 좌우가 '바뀌는 것' — 비용을 누가 내느냐. 억울함이라는 단어를 반드시 입에 올릴 것. 앞 슬라이드 인용과 직결된다.">
+        <div class="kicker"><span>PART 2 · 사례</span></div>
+        <h2 class="slide-title">귀찮음이 아니라, 손익이었습니다</h2>
+        <div class="constant-band rise">
+          <span class="cb-lab">변하지 않는 것</span>
+          <span class="cb-body">이득 — 프로젝트가 굴러간다. <b>언제나 조직에 귀속</b></span>
+        </div>
+        <div class="versus">
+          <div>
+            <p class="side-lab">지금까지 — 비용은 개인이 낸다</p>
+            <p class="cost">재촉하기 · 거절 받아내기 · 누군가 빼기</p>
+            <p class="verdict">이득은 조직이 가져가는데 비용은 나만 낸다.<br><span class="hl">그래서 억울하다.</span></p>
+          </div>
+          <div class="accent-col">
+            <p class="side-lab">모두의 시간 — 비용은 시스템이 낸다</p>
+            <p class="cost">독촉 · 불참 정리 · 확정 통보</p>
+            <p class="verdict">이득도 조직, 비용도 조직.<br><span class="strong">대칭이 맞는다.</span></p>
+          </div>
+        </div>
+        <p class="statement sm">이득은 그대로입니다. 바뀐 건 <span class="strong">비용을 누가 내느냐</span>예요.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="바이브 코딩과 데모" data-screen-label="16"
+        data-speaker-notes="여기까지가 루프 0번. 이제 1번입니다. 썸네일을 클릭해 데모를 띄우고 20~30초만 시연하세요 — 계정 전환 한 번, 시간 진행 한 번. 그 이상 들어가면 시간이 무너집니다.">
+        <div class="kicker"><span>PART 2 · 사례 — 루프 1번</span></div>
+        <h2 class="slide-title">가설이 좁혀졌으니, <span class="hl">물어볼 물건</span>을 만듭니다</h2>
+        <div class="cols cols-2 thumb-right rise">
+          <div>
+            <p class="sub">바이브 코딩 · 며칠</p>
+            <h3>6명 시점 전환 · T0~T3 시간 진행</h3>
+            <p class="sub" style="margin-top:32px">확인하려던 것</p>
+            <h3>“아무 말도 안 했는데<br>회의가 확정되면 어떤 기분인가”</h3>
+            <p>말로 물어봐서는 안 나옵니다. <span class="strong">겪게 해야</span> 나와요.</p>
+          </div>
+          <div>
+            <a class="demo-thumb" href="https://runauxlabs.github.io/modu/" target="_blank" rel="noopener">
+              <img src="assets/demo-thumb.png" alt="모두의 시간 데모 — 6명 시점 전환과 T0~T3 시간 흐름 컨트롤, 회의 생성 시트">
+              <span class="play-tag">runauxlabs.github.io/modu</span>
+            </a>
+            <p class="note-fine" style="margin-top:18px">완성품이 아니라, <span class="strong">물어보기 위한 장비</span>입니다.<br>다음은 이걸
+              보여주고 <span class="hl">유저테스트</span>입니다.</p>
+          </div>
+        </div>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <section class="slide content" data-label="아직 검증되지 않았습니다" data-screen-label="17"
+        data-speaker-notes="⏸ 여기서 2~3초 멈추세요. 그리고 목소리를 낮추지 마세요. 한계를 말하는 대목에서 위축되면 변명처럼 들립니다. 담담하게 사실로.">
+        <div class="kicker"><span>PART 2 · 사례</span></div>
+        <h2 class="slide-title">루프 2번 앞 — <span class="hl">아직 검증되지 않았습니다</span></h2>
+        <div class="cards g3 rise">
+          <div class="dcard">
+            <div class="n">확인해야 할 것 01</div>
+            <h3>조율을 미루는 진짜 이유가 정말 관계비용인가</h3>
+            <p class="evidence">근거 — <b>인터뷰 1명</b></p>
+          </div>
+          <div class="dcard">
+            <div class="n">확인해야 할 것 02</div>
+            <h3>아무 말 안 한 사람이, 자기 침묵이 동의로 처리되는 걸 받아들이는가</h3>
+            <p class="evidence none">근거 — <b>없음</b></p>
+          </div>
+          <div class="dcard">
+            <div class="n">확인해야 할 것 03</div>
+            <h3>시스템 이름으로 독촉하면 정말 미안함이 사라지는가</h3>
+            <p class="evidence none">근거 — <b>없음</b></p>
+          </div>
+        </div>
+        <p class="statement sm">셋 다 <span class="strong">유저테스트로만 답할 수 있는 질문</span>입니다.<br>AI는 저를 여기까지 <span
+            class="strong">빨리</span> 데려다줬고, 그 결과로 고치면 <span class="hl">루프의 0번으로 돌아갑니다.</span></p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <!-- ══════════ 08:00 PART 3 실습 ══════════ -->
+
+      <section class="slide content" data-label="실습 3단계" data-screen-label="18"
+        data-speaker-notes="지금 같이 하는 게 아니라 돌아가서 할 과제라는 걸 먼저 말하세요. 3단계가 핵심 — 왼쪽은 다 버린다. 그게 루프 0번입니다.">
+        <div class="kicker"><span>PART 3 · 실습</span></div>
+        <h2 class="slide-title">돌아가서 해보실 것 — <span class="hl">15분</span></h2>
+        <div class="flow rise">
+          <div class="flow-step">
+            <div class="n">① 3분</div>
+            <h3>페르소나 4칸</h3>
+            <p>쓰다 그만둔 사람 한 명. 나이·직업은 쓰지 마세요</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">② 7분</div>
+            <h3>5문항 인터뷰</h3>
+            <p>유도 질문 금지 · “동의하지 말고 반박하라” · <span class="hl">“이유도 같이 써라”</span></p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step">
+            <div class="n">③ 5분</div>
+            <h3><span class="hl">이유</span>를 두 칸으로</h3>
+            <p>‘알던 것’은 다 버리고, ‘처음 듣는 것’만 남긴다</p>
+          </div>
+        </div>
+        <p class="note-fine">③ 이 단계가 루프의 <span class="strong">0번</span>입니다. 버리는 기준을 만드는 게 목적.</p>
+        <p class="statement sm">남는 건 페르소나도 인터뷰 기록도 아닙니다.<br><span class="strong">유저테스트에서 물어볼 질문 세 개</span>예요. — 오늘 안에 한
+          번만 돌려보세요.</p>
+        <div class="page-foot" aria-hidden="true"></div>
+      </section>
+
+      <!-- ══════════ 09:35 클로징 ══════════ -->
+
+      <section class="slide cover" data-label="클로징" data-screen-label="19"
+        data-speaker-notes="AI는 여러분 대신 디자인하지 않습니다. 대신 더 많이 시도해볼 수 있게 해주죠. 감사합니다.">
+        <div class="kicker"><span>CLOSING</span></div>
+        <div class="rise">
+          <h2 class="display">AI는 검증을 대신하지 않습니다.<br>검증까지 가는 길을 짧게 만들 뿐입니다.</h2>
+        </div>
+        <div class="pin-bottom meta">
+          <span>길이 짧아지면 더 자주 확인하게 되고, 자주 확인한 제품이 결국 맞는 제품이 됩니다</span>
+        </div>
+      </section>
+
+    </x-import>
+  </x-dc>
+  <script type="text/x-dc" data-dc-script
+    data-props="{&quot;footerNote&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;AI를 활용한 프로덕트 디자인&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;덱 설정&quot;},&quot;showPageNumbers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;덱 설정&quot;},&quot;bodySize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:34,&quot;min&quot;:28,&quot;max&quot;:42,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;덱 설정&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { this.apply(); }
+  componentDidUpdate() { this.apply(); }
+  apply(tries) {
+    const stage = document.querySelector('deck-stage');
+    if (!stage) {
+      if ((tries ?? 0) < 60) requestAnimationFrame(() => this.apply((tries ?? 0) + 1));
+      return;
+    }
+    stage.style.setProperty('--page-foot-note', JSON.stringify(this.props.footerNote ?? 'AI를 활용한 프로덕트 디자인'));
+    stage.style.setProperty('--type-body', (this.props.bodySize ?? 34) + 'px');
+    if (this.props.showPageNumbers === false) stage.setAttribute('data-no-page-furniture', '');
+    else stage.removeAttribute('data-no-page-furniture');
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+
+</html>
