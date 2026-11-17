@@ -59,7 +59,9 @@
     if (document.visibilityState !== 'visible') return;
     pending.set(element, window.setTimeout(() => {
       pending.delete(element);
-      if (document.visibilityState === 'visible' && visible.has(element)) view(element);
+      const rect = element.getBoundingClientRect?.();
+      const displayed = !rect || (rect.width > 0 && rect.height > 0);
+      if (displayed && document.visibilityState === 'visible' && visible.has(element)) view(element);
     }, 1000));
   };
   let observer;

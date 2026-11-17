@@ -151,6 +151,14 @@ test('tall workbook sections count by viewport visibility rather than total sect
   assert.equal(h.events().filter((event) => event.name === 'task_view').length, 1);
 });
 
+test('a hidden desktop deck does not count while the mobile reading view is in use', async () => {
+  const h = await harness();
+  h.slide.getBoundingClientRect = () => ({ width: 0, height: 0 });
+  h.emit('slidechange', { detail: { slide: h.slide } });
+  h.tick();
+  assert.equal(h.events().filter((event) => event.name === 'slide_view').length, 0);
+});
+
 test('copy counts only clipboard success and never sends prompt contents', async () => {
   for (const copyFails of [false, true]) {
     const h = await harness({ copyFails });
