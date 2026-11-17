@@ -20,3 +20,7 @@ public/uploads/ProblemDefinition/
 # 시연 영상 원본(317MB) — GitHub 100MB 파일 제한 초과. 로컬 보관, 배포는 외부 호스팅 링크로.
 public/uploads/deck-codeit-ai-product-design/assets/demo_video.mp4
 *.mp4
+
+# Local course planning, discussions, references, originals and progress logs.
+# Keep outside public/ and src/ so Astro does not publish these files.
+/local-work/

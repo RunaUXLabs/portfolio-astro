@@ -1,0 +1,6 @@
+{
+  "measurementId": "",
+  "allowedHostnames": ["runauxlabs.github.io"],
+  "pathPrefix": "/portfolio-astro/courses/",
+  "debug": false
+}

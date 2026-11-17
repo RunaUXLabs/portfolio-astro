@@ -1,0 +1,17 @@
+---
+interface Props {
+  courseId: string;
+  cohort: string;
+  chapterId: string;
+}
+const { courseId, cohort, chapterId } = Astro.props;
+const scriptUrl = `${import.meta.env.BASE_URL}courses/course-analytics.js`;
+---
+<script
+  is:inline
+  defer
+  src={scriptUrl}
+  data-course-id={courseId}
+  data-cohort={cohort}
+  data-chapter-id={chapterId}
+></script>
