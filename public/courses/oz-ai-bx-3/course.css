@@ -45,6 +45,7 @@ deck-stage .slide-title { font-size: 68px; line-height: 1.24; }
 .scope-step p { margin: 8px 0 0; font-size: 32px; line-height: 1.4; }
 .scope-step.emphasis p { color: var(--color-accent-200); }
 .scope-example .eyebrow { margin-bottom: 20px; }
+.scope-example .scope-step { padding: 12px 0; }
 .reference-slot { position: relative; display: flex; min-height: 460px; margin: 0; padding: 30px; align-items: center; justify-content: center; border: 1px dashed var(--color-neutral-700); border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-surface) 26%, transparent); }
 .slot-index { position: absolute; top: 24px; left: 28px; color: var(--color-neutral-500); font-size: 18px; letter-spacing: .09em; }
 .reference-slot figcaption { display: flex; flex-direction: column; gap: 17px; text-align: center; padding: 25px; }
