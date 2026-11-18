@@ -54,7 +54,7 @@
   });
   // Keep normal reading keys on narrow screens instead of navigating the hidden deck.
   document.addEventListener('keydown', (event) => {
-    if (isMobile() && ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'PageUp', 'PageDown', ' '].includes(event.key)) {
+    if ((isMobile() || event.target.closest?.('.lesson-note')) && ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'PageUp', 'PageDown', ' '].includes(event.key)) {
       event.stopImmediatePropagation();
     }
   }, true);
