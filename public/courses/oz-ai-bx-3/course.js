@@ -9,6 +9,9 @@
   const isMobile = () => window.matchMedia('(max-width: 760px)').matches;
   const update = (index) => {
     select.value = String(index);
+    const secondPart = index >= 4;
+    document.getElementById('part-number').textContent = secondPart ? '02' : '01';
+    document.getElementById('part-title').textContent = secondPart ? '원문 수집과 AI 비교' : '조사 범위 정하기';
     articles.forEach((article) => { article.hidden = article.dataset.noteFor !== slides[index]?.id; });
     const hash = `#${index + 1}`;
     if (location.hash !== hash) history.replaceState(null, '', hash);

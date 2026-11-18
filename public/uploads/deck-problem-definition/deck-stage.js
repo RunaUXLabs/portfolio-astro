@@ -1578,8 +1578,10 @@
       // marginLeft shifts the centre by rw/2 so it lands in the middle of
       // the [rw, innerWidth] stage region.
       if (this._overlay) this._overlay.style.marginLeft = (rw / 2) + 'px';
-      const vw = window.innerWidth - rw;
-      const vh = window.innerHeight;
+      // Embedded course decks reserve space for their header and lesson navigation.
+      const embedded = this.hasAttribute('fit-container');
+      const vw = (embedded ? this.clientWidth : window.innerWidth) - rw;
+      const vh = embedded ? this.clientHeight : window.innerHeight;
       const s = Math.min(vw / this.designWidth, vh / this.designHeight);
       this._canvas.style.transform = `scale(${s})`;
     }
