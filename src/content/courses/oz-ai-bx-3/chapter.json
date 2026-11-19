@@ -1,0 +1,17 @@
+{
+  "slug": "oz-ai-bx-3",
+  "id": "ai-benchmark-brand",
+  "courseId": "ai-bx",
+  "cohort": "3",
+  "program": "AI BX",
+  "organization": "오즈코딩스쿨",
+  "title": "AI 벤치마킹 기반 신규 브랜드 기획",
+  "description": "경쟁 비교와 고객의 말에서 출발해 신규 브랜드의 기획과 언어를 만듭니다.",
+  "assetPath": "courses/oz-ai-bx-3/",
+  "days": [
+    38,
+    39,
+    40,
+    41
+  ]
+}
