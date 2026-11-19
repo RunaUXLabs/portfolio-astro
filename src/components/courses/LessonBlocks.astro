@@ -1,0 +1,13 @@
+---
+import { richHtml } from '../../lib/course-model.mjs';
+const { blocks = [], assetBase = '' } = Astro.props;
+const html = (value = '') => richHtml(value, assetBase);
+---
+{blocks.map((block) => <>
+  {block.type === 'html' && <Fragment set:html={html(block.html)} />}
+  {block.type === 'columns' && <div class="lecture-grid">{block.columns.map((column) => <Astro.self blocks={column} assetBase={assetBase} />)}</div>}
+  {block.type === 'steps' && <div class="hypothesis-steps">{block.items.map((item) => <div><span set:html={html(item.labelHtml)} /><p set:html={html(item.bodyHtml)} /></div>)}</div>}
+  {block.type === 'panel' && <div class="concept-panel"><p class="eyebrow">{block.label}</p>{block.items.map((item) => <><h3 set:html={html(item.titleHtml)} /><p set:html={html(item.bodyHtml)} /></>)}{block.noteHtml && <small set:html={html(block.noteHtml)} />}</div>}
+  {block.type === 'table' && <div class="pattern-content"><table class="pattern-table">{block.caption && <caption>{block.caption}</caption>}<thead><tr>{block.headers.map((cell) => <th scope="col" set:html={html(cell)} />)}</tr></thead><tbody>{block.rows.map((row) => <tr>{row.map((cell) => <td set:html={html(cell)} />)}</tr>)}</tbody></table></div>}
+  {block.type === 'placeholder' && <div class="lesson-image-space"><p class="slot-label">이미지 자리</p><h3>{block.title}</h3><p>{block.description || '구조를 설명하는 그림을 넣을 자리입니다.'}</p></div>}
+</>)}

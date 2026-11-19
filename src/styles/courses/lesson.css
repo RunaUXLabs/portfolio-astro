@@ -15,6 +15,11 @@ body { overflow-x: hidden; }
 .course-identity p { margin: 0 0 var(--space-1); font-size: 11px; color: var(--color-neutral-400); }
 .course-identity h1 { margin: 0; font-size: 16px; letter-spacing: -.025em; }
 .day-label { font-size: 12px; color: var(--color-neutral-400); white-space: nowrap; }
+.course-actions { gap: 16px; }
+.lesson-bar p { flex: 1; }
+.lesson-bar { gap: 16px; }
+.next-core { font-size: 11px; white-space: nowrap; }
+.next-core:disabled { opacity: .45; cursor: default; }
 .course-actions .btn { font-size: 12px; }
 .lesson-bar { min-height: 52px; padding: var(--space-3) var(--course-gap); display: flex; justify-content: space-between; align-items: center; }
 .lesson-bar p { margin: 0; font-size: 12px; color: var(--color-accent-300); font-feature-settings: "tnum" 1; }
@@ -126,6 +131,9 @@ body.notes-open deck-stage { height: 66dvh; }
 .result-preview caption { text-align: left; font-size: 19px; color: var(--color-neutral-400); padding-bottom: 14px; }
 .result-preview th, .result-preview td { text-align: left; padding: 18px 12px; border-bottom: 1px solid var(--color-divider); vertical-align: top; }
 .result-preview th { font-weight: 500; color: var(--color-accent-300); }
+.result-preview th:first-child { width: 18%; }
+.result-preview th:nth-child(2) { width: 34%; }
+.result-preview th:nth-child(3) { width: 48%; }
 .result-preview .result-question { font-size: 27px; line-height: 1.6; margin: 24px 0 0; }
 .practice-block { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--color-divider); }
 .practice-block .activity-label { font-size: 13px; color: var(--color-accent-300); }
@@ -144,10 +152,87 @@ body.notes-open deck-stage { height: 66dvh; }
 .answer { padding: 18px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); }
 .answer summary { cursor: pointer; color: var(--color-accent-200); }
 .answer summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 5px; }
+.pattern-content { margin-top: 32px; }
+.pattern-table { width: 100%; border-collapse: collapse; font-size: 29px; line-height: 1.5; }
+.pattern-table caption { font-size: 21px; color: var(--color-neutral-400); text-align: left; padding-bottom: 18px; }
+.pattern-table th, .pattern-table td { text-align: left; vertical-align: top; padding: 16px 20px; border-bottom: 1px solid var(--color-divider); }
+.pattern-table th { font-weight: 500; color: var(--color-accent-300); }
+.pattern-table th:first-child { width: 22%; }
+.pattern-findings { display: grid; gap: 12px; margin-top: 24px; }
+.pattern-findings p { font-size: 27px; line-height: 1.5; margin: 0; }
+.pattern-findings span { display: inline-block; width: 130px; color: var(--color-accent-300); }
+.hypothesis-grid, .question-grid { gap: 60px; }
+.hypothesis-steps > div { padding: 18px 0; border-top: 1px solid var(--color-divider); }
+.hypothesis-steps > div > span { color: var(--color-accent-300); font-size: 22px; }
+.hypothesis-steps p { margin: 10px 0 0; font-size: 29px; line-height: 1.5; }
+.opportunity-slide .hypothesis-steps > div { padding: 12px 0; }
+.research-sequence { display: grid; grid-template-columns: repeat(5,1fr); gap: 24px; padding: 0; list-style: none; margin: 58px 0 0; }
+.research-sequence li { border-top: 1px solid var(--color-divider); padding: 24px 18px; }
+.research-sequence li > span { font-size: 23px; color: var(--color-accent-300); }
+.research-sequence strong { display: block; font-size: 48px; font-weight: 500; margin: 25px 0; }
+.research-sequence p { font-size: 29px; line-height: 1.65; margin: 0; }
+.sequence-caption { font-size: 24px; line-height: 1.6; color: var(--color-neutral-400); margin-top: 35px; }
+.workflow-slide .takeaway { margin-top: 36px; }
+.assignment-grid { gap: 60px; }
+.deliverable-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; }
+.deliverable-list li { display: flex; gap: 26px; align-items: baseline; }
+.deliverable-list li > span { font-size: 23px; color: var(--color-accent-300); min-width: 74px; }
+.deliverable-list h3 { margin: 0 0 8px; font-size: 32px; line-height: 1.4; }
+.deliverable-list p { margin: 0; font-size: 25px; line-height: 1.5; color: var(--color-neutral-300); }
+.assignment-grid .hypothesis-steps > div { padding: 12px 0; }
+.assignment-target { padding: 26px 38px; border-left: 1px solid var(--color-divider); }
+.assignment-target > strong { display: block; font-size: 62px; font-weight: 500; margin: 26px 0; color: var(--color-accent-200); }
+.assignment-target p:not(.eyebrow) { font-size: 29px; line-height: 1.6; margin: 24px 0; }
+.assignment-target small { font-size: 22px; line-height: 1.6; color: var(--color-neutral-400); }
+.assignment-hypothesis .assignment-target { padding-top: 18px; padding-bottom: 18px; }
+.assignment-hypothesis .assignment-target > strong { margin: 18px 0; }
+.assignment-hypothesis .assignment-target p:not(.eyebrow) { margin: 18px 0; }
+.lesson-media { margin: 0; min-width: 0; display: flex; flex-direction: column; border: 1px solid var(--color-divider); border-radius: var(--radius-md); overflow: hidden; background: #181a29; }
+.lesson-media > a { display: flex; justify-content: center; align-items: center; background: #181a29; }
+.lesson-media img { display: block; width: 100%; height: 350px; object-fit: contain; }
+.lesson-media figcaption { display: grid; gap: 7px; padding: 14px 20px; font-size: 18px; line-height: 1.45; color: var(--color-neutral-400); }
+.lesson-media figcaption strong { font-size: 22px; font-weight: 500; color: var(--color-accent-200); }
+.lesson-media figcaption a { color: var(--color-accent-300); }
+.concept-panel { padding: 30px 38px; border-left: 1px solid var(--color-divider); }
+.concept-panel h3 { font-size: 35px; font-weight: 500; margin: 28px 0 14px; }
+.concept-panel p:not(.eyebrow) { font-size: 27px; line-height: 1.6; margin: 0 0 28px; }
+.concept-panel small { color: var(--color-neutral-400); font-size: 22px; line-height: 1.6; }
+.notes-heading h2 span { font-size: 12px; color: var(--color-neutral-400); font-weight: 400; }
+.learning-brief { padding: 0 0 20px; }
+.learning-brief .brief-check { color: var(--color-accent-200); font-size: 14px; }
+.reference-details { border-top: 1px solid var(--color-divider); padding: 20px 0; }
+.reference-details > summary { cursor: pointer; color: var(--color-accent-200); font-size: 15px; }
+.reference-content { margin-top: 28px; }
+.reference-content .lesson-media img { height: auto; max-height: 600px; }
+.reference-content .lesson-media figcaption { font-size: 12px; }
+.reference-content .lesson-media figcaption strong { font-size: 16px; }
+.assignment-levels { padding: 16px 20px; border: 1px solid var(--color-divider); margin: 24px 0; }
+.assignment-levels strong { color: var(--color-accent-200); }
+.bx-preview-table { width: 100%; border-collapse: collapse; font-size: 26px; line-height: 1.5; }
+.bx-preview-table caption { text-align: left; font-size: 20px; color: var(--color-neutral-400); padding-bottom: 16px; }
+.bx-preview-table th, .bx-preview-table td { padding: 20px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--color-divider); }
+.bx-preview-table th { color: var(--color-accent-300); font-weight: 500; }
+.bx-preview-table td:first-child { width: 18%; }
+.bx-preview-table td:nth-child(2) { width: 38%; }
+.assignment-table-block { margin-top: 36px; }
+.assignment-table-block .pattern-table th:first-child { width: 24%; }
+.assignment-note { display: grid; gap: 14px; margin-top: 30px; }
+.assignment-note p { font-size: 28px; line-height: 1.5; margin: 0; }
+.submission-checks { list-style: none; margin: 0; padding: 0; }
+.submission-checks li { font-size: 29px; line-height: 1.6; padding: 16px 0; border-bottom: 1px solid var(--color-divider); }
+.explain-cell { border-left: 1px solid var(--color-divider); padding: 26px 36px; }
+.explain-cell > p:not(.eyebrow) { font-size: 31px; line-height: 1.7; margin: 24px 0; }
+.explain-cell em { font-style: normal; color: var(--color-accent-200); }
+.explain-cell small { font-size: 22px; color: var(--color-neutral-400); }
 @media (max-width: 760px) {
+  .course-header { gap: 12px; }
+  .course-actions { gap: 8px; }
+  .course-actions .day-label { display: none; }
+  .lesson-bar { flex-wrap: wrap; }
+  .next-core { font-size: 10px; padding: 5px 8px; }
   .course-header { padding: var(--space-6); align-items: flex-start; min-height: auto; }
   .course-identity { gap: var(--space-4); }
-  .course-identity h1 { font-size: 13px; line-height: 1.6; max-width: 230px; }
+  .course-identity h1 { font-size: 13px; line-height: 1.6; max-width: 180px; }
   .course-mark { font-size: 15px; margin-top: var(--space-1); }
   .course-identity p { font-size: 10px; }
   .course-actions .btn { display: none; }
@@ -158,6 +243,7 @@ body.notes-open deck-stage { height: 66dvh; }
   .lesson-bar select { font-size: 11px; max-width: 140px; }
   deck-stage, #study-notes { display: none !important; }
   .mobile-reading { display: block; }
+  .mobile-role { color: var(--color-accent-200); font-size: 11px; margin: 0 0 20px; }
   .mobile-reading .slide { padding: calc(var(--space-8) * 2) var(--space-6); position: relative; min-height: 0; border-top: 1px solid var(--color-divider); overflow: hidden; }
   .mobile-reading .kicker { position: static; font-size: 11px; margin-bottom: var(--space-8); }
   .mobile-reading .kicker::before { display: none; }
@@ -225,6 +311,43 @@ body.notes-open deck-stage { height: 66dvh; }
   .mobile-reading .learning-table { font-size: 12px; }
   .mobile-reading .learning-table th, .mobile-reading .learning-table td { padding: 10px 8px; min-width: 78px; }
   .mobile-reading .exercise { padding: 16px; }
+  .mobile-reading .pattern-content { margin-top: 28px; }
+  .mobile-reading .pattern-table { font-size: 13px; }
+  .mobile-reading .pattern-table caption { font-size: 11px; padding-bottom: 16px; }
+  .mobile-reading .pattern-table th, .mobile-reading .pattern-table td { padding: 14px 7px; }
+  .mobile-reading .pattern-findings p { font-size: 14px; }
+  .mobile-reading .pattern-findings span { width: 60px; }
+  .mobile-reading .hypothesis-steps > div { padding: 16px 0; }
+  .mobile-reading .hypothesis-steps > div > span { font-size: 12px; }
+  .mobile-reading .hypothesis-steps p { font-size: 18px; }
+  .mobile-reading .research-sequence { grid-template-columns: 1fr; gap: 0; margin-top: 32px; }
+  .mobile-reading .research-sequence li { padding: 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: baseline; }
+  .mobile-reading .research-sequence li > span { font-size: 14px; }
+  .mobile-reading .research-sequence strong { font-size: 24px; margin: 0; text-align: right; }
+  .mobile-reading .research-sequence p { grid-column: 1 / -1; font-size: 18px; }
+  .mobile-reading .sequence-caption { font-size: 13px; margin-top: 24px; }
+  .mobile-reading .lesson-media img { height: auto; max-height: 380px; }
+  .mobile-reading .lesson-media figcaption { padding: 14px; font-size: 11px; }
+  .mobile-reading .lesson-media figcaption strong { font-size: 15px; }
+  .mobile-reading .concept-panel { padding: 24px 0 0; border-left: 0; border-top: 1px solid var(--color-divider); }
+  .mobile-reading .concept-panel h3 { font-size: 23px; margin: 20px 0 12px; }
+  .mobile-reading .concept-panel p:not(.eyebrow) { font-size: 16px; margin-bottom: 20px; }
+  .mobile-reading .concept-panel small { font-size: 13px; }
+  .mobile-reading .bx-preview-table { font-size: 13px; }
+  .mobile-reading .bx-preview-table caption { font-size: 11px; }
+  .mobile-reading .bx-preview-table th, .mobile-reading .bx-preview-table td { padding: 12px 6px; }
+  .mobile-reading .deliverable-list { gap: 24px; }
+  .mobile-reading .deliverable-list li { gap: 12px; }
+  .mobile-reading .deliverable-list li > span { font-size: 12px; min-width: 40px; }
+  .mobile-reading .deliverable-list h3 { font-size: 19px; }
+  .mobile-reading .deliverable-list p { font-size: 14px; }
+  .mobile-reading .assignment-target, .mobile-reading .explain-cell { padding: 24px 0 0; border-left: 0; border-top: 1px solid var(--color-divider); }
+  .mobile-reading .assignment-target > strong { font-size: 36px; margin: 18px 0; }
+  .mobile-reading .assignment-target p:not(.eyebrow), .mobile-reading .explain-cell > p:not(.eyebrow) { font-size: 18px; }
+  .mobile-reading .assignment-target small, .mobile-reading .explain-cell small { font-size: 13px; }
+  .mobile-reading .assignment-table-block { margin-top: 32px; }
+  .mobile-reading .assignment-note p { font-size: 16px; }
+  .mobile-reading .submission-checks li { font-size: 17px; padding: 14px 0; }
   .lesson-footer { padding: var(--space-6); flex-direction: column; font-size: 10px; }
 }
 @media print {

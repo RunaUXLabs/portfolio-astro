@@ -1,0 +1,11 @@
+---
+import { richHtml } from '../../lib/course-model.mjs';
+const { slides, assetBase } = Astro.props;
+---
+<aside id="study-notes" class="study-notes" aria-label="장표별 예시와 연습" hidden>
+  <div class="notes-heading"><h2>예시와 연습 <span>· 과제할 때 참고</span></h2><button id="notes-close" class="btn btn-ghost" type="button">닫기</button></div>
+  {slides.map((slide) => <article class="lesson-note" data-note-for={slide.id} hidden>
+    <div class="learning-brief" set:html={richHtml(slide.notes.briefHtml, assetBase)} />
+    <details class="reference-details"><summary>{slide.notes.summary}</summary><div class="reference-content" set:html={richHtml(slide.notes.bodyHtml, assetBase)} /></details>
+  </article>)}
+</aside>

@@ -1,0 +1,20 @@
+---
+import LessonBlocks from './LessonBlocks.astro';
+import { richHtml } from '../../lib/course-model.mjs';
+const { slide, day, assetBase } = Astro.props;
+---
+<section
+  class:list={['slide', 'content', slide.className]}
+  id={slide.id}
+  data-label={slide.label}
+  data-slide-id={slide.id}
+  data-lesson-day={day}
+  data-learning-role={slide.role}
+  data-task-id={slide.role === 'task' ? slide.id : undefined}
+>
+  <div class="kicker"><span>DAY {day} · {slide.label}</span></div>
+  <h2 class="slide-title" set:html={richHtml(slide.titleHtml, assetBase)} />
+  <LessonBlocks blocks={slide.blocks} assetBase={assetBase} />
+  <div class="takeaway"><span>{slide.actionLabel}</span><p set:html={richHtml(slide.actionHtml, assetBase)} /></div>
+  <div class="page-foot" aria-hidden="true"></div>
+</section>

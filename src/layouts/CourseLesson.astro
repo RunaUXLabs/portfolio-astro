@@ -1,0 +1,47 @@
+---
+import '../styles/courses/lesson.css';
+import '../styles/courses/navigation.css';
+import CourseHeader from '../components/courses/CourseHeader.astro';
+import LessonSlide from '../components/courses/LessonSlide.astro';
+import LessonNotes from '../components/courses/LessonNotes.astro';
+import CourseAnalytics from '../components/CourseAnalytics.astro';
+import { chapterAssetBase } from '../lib/course-model.mjs';
+const { chapter, lesson } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const assetBase = chapterAssetBase(base, chapter);
+const firstPart = lesson.parts[0];
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={chapter.description} />
+    <title>{`${lesson.day}일차 · ${lesson.title} · ${chapter.program} ${chapter.cohort}기`}</title>
+    <link rel="stylesheet" href={`${base}uploads/deck-problem-definition/_ds/nocturne-bd437095-78a6-46e1-a604-9fe9e6f79d28/styles.css`} />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" />
+    <link rel="stylesheet" href={`${base}uploads/deck-problem-definition/deck.css`} />
+    <script is:inline defer src={`${base}uploads/deck-problem-definition/deck-stage.js`}></script>
+    <CourseAnalytics courseId={chapter.courseId} cohort={chapter.cohort} chapterId={chapter.id} />
+  </head>
+  <body>
+    <a class="skip-link" href="#lesson">강의 내용으로 이동</a>
+    <CourseHeader chapter={chapter} lesson={lesson} />
+    <main id="lesson" data-course-root>
+      <div class="lesson-bar"><div class="lesson-context"><p><span id="part-number" set:text={firstPart.title.slice(0, 2)}></span> <span id="part-title" set:text={firstPart.title.slice(3)}></span></p></div><label for="part-select" class="part-label">하위 파트</label><select id="part-select" disabled aria-label="하위 파트 선택">
+        {lesson.parts.map((part) => <option value={part.start} data-summary={part.summary}>{part.title}</option>)}
+      </select><button type="button" class="btn btn-ghost next-core" id="next-core">다음 핵심</button></div>
+      <deck-stage width="1920" height="1080" no-rail fit-container aria-label={`Day ${lesson.day} ${lesson.title}`}>
+        <Fragment>{lesson.slides.map((slide) => <LessonSlide slide={slide} day={lesson.day} assetBase={assetBase} />)}</Fragment>
+      </deck-stage>
+      <div id="mobile-reading" class="mobile-reading" aria-label="모바일 읽기 자료"></div>
+      <div class="lesson-footer" role="contentinfo" aria-label="현재 학습 위치"><span id="reading-location">{lesson.day}일차 · {firstPart.title}</span><span id="reading-position">전체 내용 1 / {lesson.slides.length}</span></div>
+      <LessonNotes slides={lesson.slides} assetBase={assetBase} />
+    </main>
+    <noscript>강의 탐색에는 JavaScript가 필요합니다.</noscript>
+    <script>
+      import '../scripts/courses/lesson.js';
+      import '../scripts/courses/navigation.js';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+---
+import { lessonUrl } from '../../lib/course-model.mjs';
+const { chapter, lesson } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<header class="course-header">
+  <div class="course-identity"><span class="course-mark">{chapter.program} <span>{chapter.cohort}</span></span><div><p>{chapter.organization}</p><h1>{chapter.title}</h1></div></div>
+  <div class="course-actions">
+    <nav class="day-navigation" aria-label="강의 선택"><label for="day-select">강의</label><select id="day-select" aria-label="날짜와 강의 선택">
+      {chapter.lessons.map((day) => <option value={day.day} data-href={`${lessonUrl(base, chapter, day.day)}#1`} selected={day.day === lesson.day}>{day.day}일차 · {day.title}</option>)}
+    </select></nav>
+    <button class="btn btn-secondary" id="notes-toggle" type="button" aria-expanded="false" aria-controls="study-notes">예시와 연습</button>
+  </div>
+</header>

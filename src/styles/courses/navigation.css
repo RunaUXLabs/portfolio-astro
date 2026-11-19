@@ -1,0 +1,46 @@
+.day-navigation { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.day-navigation label { color: var(--color-neutral-400); font-size: 11px; }
+.day-navigation select { color: var(--color-text); background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: var(--radius-sm); padding: 7px 10px; font: inherit; font-size: 12px; max-width: 290px; }
+.part-label { color: var(--color-neutral-400); font-size: 11px; white-space: nowrap; }
+.lesson-bar #part-select { max-width: 300px; }
+.lesson-context { flex: 1; min-width: 0; display: flex; align-items: center; gap: 16px; }
+.lesson-context > p { flex: 0 1 auto; }
+:is(.day39-image-space, .lesson-image-space) { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 20px; padding: 44px; border: 1px dashed var(--color-divider); min-height: 400px; }
+:is(.day39-image-space, .lesson-image-space) .slot-label { font-size: 20px; color: var(--color-neutral-400); margin: 0; }
+:is(.day39-image-space, .lesson-image-space) h3 { font-size: 32px; line-height: 1.6; margin: 0; }
+:is(.day39-image-space, .lesson-image-space) > p:last-child { font-size: 22px; color: var(--color-neutral-400); margin: 0; }
+.lesson-footer { position: relative; align-items: center; }
+.lesson-footer::before { content: ''; position: absolute; top: -1px; left: 0; height: 2px; width: var(--lesson-progress, 0%); background: var(--color-accent-300); transition: width .2s ease; }
+#reading-location { min-width: 0; color: var(--color-neutral-300); }
+#reading-position { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--color-accent-200); }
+@media screen {
+  html, body { height: 100%; }
+  body { height: 100dvh; min-height: 0; margin: 0; overflow: hidden; display: flex; flex-direction: column; }
+  .course-header { flex: 0 0 auto; }
+  main#lesson { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+  .lesson-bar { flex: 0 0 auto; }
+  main#lesson > deck-stage { flex: 1 1 0; height: 0; min-height: 0; }
+  .mobile-reading { position: relative; flex: 1 1 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; overflow-anchor: none; scroll-behavior: auto; }
+  .lesson-footer { flex: 0 0 auto; order: 3; border-top: 1px solid var(--color-divider); background: var(--color-bg); }
+  main#lesson > .study-notes { flex: 1 1 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; margin: 0 auto; }
+  body.notes-open main#lesson > deck-stage { display: none; }
+}
+.day-navigation select:focus-visible { outline: 2px solid var(--color-accent-300); outline-offset: 3px; }
+@media(max-width:760px) {
+  .course-header { flex-wrap: wrap; }
+  .course-actions { width: 100%; justify-content: space-between; }
+  .course-actions .btn { display: inline-flex; }
+  .day-navigation select { font-size: 12px; max-width: min(290px, calc(100vw - 160px)); }
+  .lesson-context { flex: 1 0 100%; justify-content: space-between; gap: 12px; }
+  .lesson-context > p { flex: 1; }
+  .lesson-bar .part-label { display: none; }
+  .lesson-bar #part-select { max-width: min(240px, 67vw); }
+  :is(.day39-image-space, .lesson-image-space) { min-height: 230px; padding: 24px; gap: 14px; }
+  :is(.day39-image-space, .lesson-image-space) h3 { font-size: 21px; }
+  :is(.day39-image-space, .lesson-image-space) .slot-label, :is(.day39-image-space, .lesson-image-space) > p:last-child { font-size: 13px; }
+  .lesson-footer { padding: 12px 16px; gap: 12px; flex-direction: row; font-size: 10px; }
+  .mobile-reading .reading-part-banner { margin: calc(var(--space-8) * -2) calc(var(--space-6) * -1) 40px; padding: 32px 24px 36px; min-height: 224px; border-top: 3px solid var(--color-accent-300); border-bottom: 1px solid var(--color-accent-300); background: color-mix(in srgb, var(--color-accent-300) 13%, var(--color-bg)); }
+  .mobile-reading .reading-part-banner .reading-part-number { font-size: 13px; line-height: 1.5; letter-spacing: .12em; color: var(--color-accent-200); margin: 0 0 18px; }
+  .mobile-reading .reading-part-banner h2 { font-size: 29px; line-height: 1.45; margin: 0 0 18px; }
+  .mobile-reading .reading-part-banner > p:last-child { font-size: 15px; line-height: 1.8; color: var(--color-neutral-300); margin: 0; }
+}

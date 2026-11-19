@@ -1,0 +1,9 @@
+---
+import { chapters } from '../../../../lib/course-registry';
+import CourseLesson from '../../../../layouts/CourseLesson.astro';
+export function getStaticPaths() {
+  return chapters.flatMap((chapter) => chapter.lessons.map((lesson) => ({ params: { chapter: chapter.slug, day: String(lesson.day) }, props: { chapter, lesson } })));
+}
+const { chapter, lesson } = Astro.props;
+---
+<CourseLesson chapter={chapter} lesson={lesson} />
