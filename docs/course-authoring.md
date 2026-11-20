@@ -30,7 +30,9 @@
 
 ## 주소와 로컬 확인
 
-새 주소는 `/portfolio-astro/courses/oz-ai-bx-3/day/41/` 형식입니다. 기존 `index.html`, `day39.html`, `day40.html` 주소도 열 수 있도록 유지했습니다. 날짜별 `.html` 주소는 새 주소로 이동하며 장표 번호도 이어집니다.
+Part 3-3의 원고와 이미지는 각각 `src/content/courses/oz-ai-bx-3-ai-benchmark-brand/`, `public/courses/oz-ai-bx-3-ai-benchmark-brand/`에서 관리합니다. 기존 `/courses/oz-ai-bx-3/` 및 날짜별 주소는 새 주소로 이동하며 장표 번호도 유지합니다.
+
+새 주소는 `/portfolio-astro/courses/oz-ai-bx-3-ai-benchmark-brand/day/41/` 형식입니다. 기존 `index.html`, `day39.html`, `day40.html` 주소도 열 수 있도록 유지했습니다. 날짜별 `.html` 주소는 새 주소로 이동하며 장표 번호도 이어집니다.
 
 `npm run dev -- --host 127.0.0.1`로 로컬 확인합니다. 생성된 `dist/`나 예전 로컬 HTML 생성 스크립트를 원고처럼 편집하지 마세요. 예전 스크립트는 이관 기록으로만 보관합니다.
 

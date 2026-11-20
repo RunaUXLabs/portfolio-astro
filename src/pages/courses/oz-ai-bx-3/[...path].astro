@@ -1,0 +1,27 @@
+---
+import { chapters } from "../../../lib/course-registry";
+import { lessonUrl } from "../../../lib/course-model.mjs";
+
+export function getStaticPaths() {
+  const chapter = chapters.find(item => item.id === "ai-benchmark-brand");
+  return [
+    { params: { path: undefined }, props: { chapter, day: chapter.days[0] } },
+    ...chapter.lessons.flatMap(lesson => [
+      { params: { path: `day/${lesson.day}` }, props: { chapter, day: lesson.day } }
+    ])
+  ];
+}
+const target = lessonUrl(import.meta.env.BASE_URL, Astro.props.chapter, Astro.props.day);
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <title>교안으로 이동</title>
+  </head>
+  <body>
+    <a href={target}>AI 벤치마킹 기반 신규 브랜드 기획 교안으로 이동</a>
+    <script define:vars={{ target }}>location.replace(target + location.hash);</script>
+  </body>
+</html>

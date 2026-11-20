@@ -43,7 +43,7 @@ test('future authoring errors fail before generating broken navigation', () => {
 
 test('nested day routes resolve chapter media without changing external sources', () => {
   const chapter = chapters[0].chapter;
-  assert.equal(lessonUrl('/portfolio-astro/', chapter, 41), '/portfolio-astro/courses/oz-ai-bx-3/day/41/');
+  assert.equal(lessonUrl('/portfolio-astro/', chapter, 41), '/portfolio-astro/courses/oz-ai-bx-3-ai-benchmark-brand/day/41/');
   const base = chapterAssetBase('/portfolio-astro/', chapter);
-  assert.equal(richHtml('<img src="assets/day38/test.png"><a href="https://example.com">元</a>', base), '<img src="/portfolio-astro/courses/oz-ai-bx-3/assets/day38/test.png"><a href="https://example.com">元</a>');
+  assert.equal(richHtml('<img src="assets/day38/test.png"><a href="https://example.com">元</a>', base), '<img src="/portfolio-astro/courses/oz-ai-bx-3-ai-benchmark-brand/assets/day38/test.png"><a href="https://example.com">元</a>');
 });
